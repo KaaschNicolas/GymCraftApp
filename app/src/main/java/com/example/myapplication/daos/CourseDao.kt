@@ -6,9 +6,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
 import com.example.testapp.models.Course
-import com.example.testapp.models.Customer
 import kotlinx.coroutines.flow.Flow
-
 
 @Dao
 interface CourseDao {
