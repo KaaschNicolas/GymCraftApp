@@ -1,7 +1,7 @@
-package com.example.testapp.repositories
+package com.example.myapplication.repositories
 
-import com.example.testapp.daos.TariffDao
-import com.example.testapp.models.Tariff
+import com.example.myapplication.daos.TariffDao
+import com.example.myapplication.models.Tariff
 import javax.inject.Inject
 
 class TariffRepository

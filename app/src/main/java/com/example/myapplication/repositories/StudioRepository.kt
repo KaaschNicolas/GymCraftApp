@@ -1,7 +1,7 @@
-package com.example.testapp.repositories
+package com.example.myapplication.repositories
 
-import com.example.testapp.daos.StudioDao
-import com.example.testapp.models.Studio
+import com.example.myapplication.daos.StudioDao
+import com.example.myapplication.models.Studio
 import javax.inject.Inject
 
 class StudioRepository

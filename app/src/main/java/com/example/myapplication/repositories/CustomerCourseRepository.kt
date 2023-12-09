@@ -1,7 +1,7 @@
-package com.example.testapp.repositories
+package com.example.myapplication.repositories
 
-import com.example.testapp.daos.CustomerCourseMappingDao
-import com.example.testapp.models.CustomerCourseMapping
+import com.example.myapplication.daos.CustomerCourseMappingDao
+import com.example.myapplication.models.CustomerCourseMapping
 import javax.inject.Inject
 
 class CustomerCourseRepository

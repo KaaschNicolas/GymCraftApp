@@ -1,10 +1,10 @@
-package com.example.testapp.daos
+package com.example.myapplication.daos
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
-import com.example.testapp.models.Customer
+import com.example.myapplication.models.Customer
 import kotlinx.coroutines.flow.Flow
 
 @Dao

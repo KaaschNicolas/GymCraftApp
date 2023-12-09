@@ -1,11 +1,11 @@
-package com.example.testapp.daos
+package com.example.myapplication.daos
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
-import com.example.testapp.models.Course
+import com.example.myapplication.models.Course
 import kotlinx.coroutines.flow.Flow
 
 @Dao
