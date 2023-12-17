@@ -11,4 +11,5 @@ data class Tariff(
     var price: Float,
     var duration: Date,
     var description: String,
+    var customerId: Int,
 )

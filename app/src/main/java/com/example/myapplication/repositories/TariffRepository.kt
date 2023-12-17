@@ -15,4 +15,6 @@ class TariffRepository
     suspend fun getAll() = tariffDao.getAll()
 
     suspend fun getOneById(id: Int) = tariffDao.getOneById(id)
+
+    suspend fun getOneByCustomerId(id: Int) = tariffDao.getOneByCustomerId(id)
 }

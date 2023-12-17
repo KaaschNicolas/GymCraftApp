@@ -23,4 +23,8 @@ interface TariffDao {
     @Transaction
     @Query("SELECT * FROM Tariff WHERE id = :id")
     suspend fun getOneById(id: Int): Tariff
+
+    @Transaction
+    @Query("SELECT * FROM Tariff WHERE customerId = :id")
+    suspend fun getOneByCustomerId(id: Int): Tariff
 }
