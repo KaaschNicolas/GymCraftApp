@@ -13,7 +13,7 @@ data class Customer(
     val id: Int = 0,
     var lastName: String,
     var firstName: String,
-    @Embedded
+    @Embedded("address_")
     var address: Address,
     var username: String,
     var password: String,
@@ -23,10 +23,9 @@ data class Customer(
     var weight: Float,
     var memberSince: Date,
     var memberNumber: UUID,
-    @Embedded
+    @Embedded(prefix = "studio_")
     var studio: Studio,
-    @Embedded
-    var tariff: Tariff
+    var tariffId: Int,
 ) {
 
 

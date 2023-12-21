@@ -11,7 +11,7 @@ data class Studio(
     val id: Int,
     var studioName: String,
     var postalCode: String,
-    @Embedded
+    @Embedded(prefix = "address_")
     var address: Address,
     var foundingDate: Date,
     var owner: String,

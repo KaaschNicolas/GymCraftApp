@@ -18,13 +18,13 @@ interface TariffDao {
     suspend fun deleteTariff(tariff: Tariff)
 
     @Query("SELECT * FROM Tariff ORDER BY price")
-    suspend fun getAll(): Flow<List<Tariff>>
+    suspend fun getAll(): Flow<Tariff>
 
     @Transaction
     @Query("SELECT * FROM Tariff WHERE id = :id")
-    suspend fun getOneById(id: Int): Tariff
+    suspend fun getOneById(id: Int): Flow<Tariff>
 
     @Transaction
     @Query("SELECT * FROM Tariff WHERE customerId = :id")
-    suspend fun getOneByCustomerId(id: Int): Tariff
+    suspend fun getOneByCustomerId(id: Int): Flow<Tariff>
 }

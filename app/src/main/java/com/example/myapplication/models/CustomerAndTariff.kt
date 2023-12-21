@@ -4,10 +4,11 @@ import androidx.room.Embedded
 import androidx.room.Relation
 
 data class CustomerAndTariff(
-    @Embedded
+    @Embedded()
     val customer: Customer,
     @Relation(
-        parentColumn = "id",
+        entity = Tariff::class,
+        parentColumn = "tariffId",
         entityColumn = "customerId"
     )
     val tariff: Tariff,

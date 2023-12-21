@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("kotlin-android-extensions")
+    //id("kotlin-android-extensions")
     //id("com.google.dagger.hilt.android")
     //kotlin("kapt") version "1.9.21"
 }
@@ -39,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
