@@ -25,7 +25,6 @@ data class Customer(
     var memberNumber: UUID,
     @Embedded(prefix = "studio_")
     var studio: Studio,
-    var tariffId: Int,
 ) {
 
 

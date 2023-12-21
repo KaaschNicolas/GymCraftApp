@@ -8,7 +8,7 @@ data class CustomerAndTariff(
     val customer: Customer,
     @Relation(
         entity = Tariff::class,
-        parentColumn = "tariffId",
+        parentColumn = "id",
         entityColumn = "customerId"
     )
     val tariff: Tariff,
