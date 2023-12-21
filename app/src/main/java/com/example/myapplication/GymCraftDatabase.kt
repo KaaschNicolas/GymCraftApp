@@ -14,10 +14,13 @@ import com.example.myapplication.models.Customer
 import com.example.myapplication.models.CustomerCourseMapping
 import com.example.myapplication.models.Tariff
 import com.example.myapplication.models.Course
+import com.example.myapplication.models.CustomerStudioMapping
 import com.example.myapplication.models.Studio
 
 @Database(
-    entities = [Customer::class,
+    entities =
+    [
+        CustomerStudioMapping::class,
         CustomerCourseMapping::class,
         Tariff::class,
         Customer::class,

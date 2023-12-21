@@ -2,12 +2,21 @@ package com.example.myapplication.models
 
 import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.util.Date
 import java.util.UUID
 
 
-@Entity
+@Entity(
+    foreignKeys = [
+        ForeignKey(
+            entity = Tariff::class,
+            parentColumns = ["id"],
+            childColumns = ["id"]
+        )
+    ]
+)
 data class Customer(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,

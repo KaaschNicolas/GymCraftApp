@@ -5,7 +5,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
 import com.example.myapplication.models.Customer
-import com.example.myapplication.models.CustomerAndTariff
+//import com.example.myapplication.models.CustomerAndTariff
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -21,7 +21,8 @@ interface CustomerDao {
     @Query("SELECT * FROM Customer WHERE id = :id")
     fun getOneById(id: Int): Customer
 
-    @Transaction
+    /*@Transaction
     @Query("SELECT * FROM Customer WHERE id = :id")
     fun getOneWithTariffById(id: Int): CustomerAndTariff
+    */
 }
