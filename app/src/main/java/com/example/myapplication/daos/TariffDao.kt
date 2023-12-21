@@ -12,19 +12,19 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface TariffDao {
     @Upsert
-    suspend fun saveTariff(tariff: Tariff)
+    fun saveTariff(tariff: Tariff)
 
     @Delete
-    suspend fun deleteTariff(tariff: Tariff)
+    fun deleteTariff(tariff: Tariff)
 
     @Query("SELECT * FROM Tariff ORDER BY price")
-    suspend fun getAll(): Flow<Tariff>
+    fun getAll(): Tariff
 
     @Transaction
     @Query("SELECT * FROM Tariff WHERE id = :id")
-    suspend fun getOneById(id: Int): Flow<Tariff>
+    fun getOneById(id: Int): Tariff
 
     @Transaction
     @Query("SELECT * FROM Tariff WHERE customerId = :id")
-    suspend fun getOneByCustomerId(id: Int): Flow<Tariff>
+    fun getOneByCustomerId(id: Int): Tariff
 }

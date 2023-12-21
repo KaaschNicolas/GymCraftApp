@@ -13,9 +13,9 @@ interface CustomerDao {
     @Upsert
     fun save(customer: Customer)
 
-    @Query("SELECT * FROM Customer ORDER BY firstName")
+    @Query("SELECT * FROM Customer")
 
-    fun getAll(): Flow<List<Customer>>
+    fun getAll(): List<Customer>
 
     @Transaction
     @Query("SELECT * FROM Customer WHERE id = :id")

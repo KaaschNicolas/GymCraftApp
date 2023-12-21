@@ -12,21 +12,21 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CustomerCourseMappingDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(join: CustomerCourseMapping)
+    fun insert(join: CustomerCourseMapping)
 
     @Delete
-    suspend fun delete(customerCourseMapping: CustomerCourseMapping)
+    fun delete(customerCourseMapping: CustomerCourseMapping)
 
     @Transaction
     @Query("SELECT * FROM CustomerCourseMapping")
-    suspend fun getAll(): Flow<List<CustomerCourseMapping>>
+    fun getAll(): CustomerCourseMapping
 
     @Transaction
     @Query("SELECT * FROM CustomerCourseMapping WHERE courseId = :id")
-    suspend fun getMappingsByCourseId(id: Int): Flow<List<CustomerCourseMapping>>
+    fun getMappingsByCourseId(id: Int): CustomerCourseMapping
 
     @Transaction
     @Query("SELECT * FROM CustomerCourseMapping WHERE customerId = :id")
-    suspend fun getMappingsByCustomerId(id: Int): Flow<List<CustomerCourseMapping>>
+    suspend fun getMappingsByCustomerId(id: Int): CustomerCourseMapping
 
 }
