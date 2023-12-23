@@ -1,5 +1,6 @@
 package com.example.myapplication.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
@@ -11,5 +12,6 @@ data class Tariff(
     var price: Float,
     var duration: Date,
     var description: String,
+    @ColumnInfo(name = "customerId")
     var customerId: Int,
 )

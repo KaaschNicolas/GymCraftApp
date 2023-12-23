@@ -18,5 +18,5 @@ class CustomerRepository
 
     suspend fun getOneById(id: Int) = customerDao.getOneById(id)
 
-    suspend fun getOneWithTariffById(id: Int) = customerDao.getOneWithTariffById(id)
+    //suspend fun getOneWithTariffById(id: Int) = customerDao.getOneWithTariffById(id)
 }

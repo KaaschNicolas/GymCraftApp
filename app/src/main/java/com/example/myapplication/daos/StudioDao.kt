@@ -12,16 +12,16 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface StudioDao {
     @Upsert
-    suspend fun save(studio: Studio)
+   fun save(studio: Studio)
 
     @Delete
-    suspend fun delete(studio: Studio)
+    fun delete(studio: Studio)
 
     @Transaction
     @Query("SELECT * FROM Studio ORDER BY studioName")
-    suspend fun getAll(): Flow<List<Studio>>
+    fun getAll(): Studio
 
     @Transaction
     @Query("SELECT * FROM Studio WHERE id = :id")
-    suspend fun getOneById(id: Int): Studio
+    fun getOneById(id: Int): Studio
 }
