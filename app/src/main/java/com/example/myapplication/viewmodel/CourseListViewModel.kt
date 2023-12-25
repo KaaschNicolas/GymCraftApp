@@ -10,7 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class CourseListViewModel @Inject constructor(
     private val courseRepository: CourseRepository,
-
 ) : ViewModel() {
 
     private lateinit var courses: List<Course>

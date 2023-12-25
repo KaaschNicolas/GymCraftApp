@@ -1,11 +1,13 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.myapplication.adapters.CourseListAdapter
@@ -17,9 +19,9 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class CourseListFragment(
     var lv: ListView? = null
-) : Fragment() {
+) : Fragment(R.layout.fragment_course_list) {
 
-    @Inject lateinit var viewModel: CourseListViewModel
+    private lateinit var viewModel: CourseListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +40,13 @@ class CourseListFragment(
             lv.adapter = arrayAdapter
         }
 
+        lv.setOnItemClickListener { parent, view, position, id ->
+            val element = parent.getItemAtPosition(position)
+
+            // navigate to next activity/fragment here
+            //val intent = Intent(this, CourseDetailActivity::class.java)
+            //startActivity(intent)
+        }
 
         return view
     }
