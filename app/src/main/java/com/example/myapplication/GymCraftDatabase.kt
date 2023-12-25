@@ -36,6 +36,8 @@ abstract class GymCraftDatabase : RoomDatabase() {
 
     abstract fun getCustomerCourseMappingDao(): CustomerCourseMappingDao
 
+    abstract fun getCustomerStudioMappingDao(): CustomerStudioMapping
+
     abstract fun getCourseDao(): CourseDao
 
     abstract fun getTariffDao(): TariffDao
