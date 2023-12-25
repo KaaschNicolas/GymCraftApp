@@ -10,8 +10,10 @@ import javax.inject.Inject
 @HiltViewModel
 class CourseListViewModel @Inject constructor(
     private val courseRepository: CourseRepository,
-    private var courses: List<Course>
+
 ) : ViewModel() {
+
+    private lateinit var courses: List<Course>
 
     private suspend fun fillCourses() {
         courseRepository.getAll().let {it ->

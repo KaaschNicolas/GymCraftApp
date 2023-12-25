@@ -16,10 +16,10 @@ class CustomerViewModel
     private val customerRepository: CustomerRepository,
     private val studioRepository: CustomerStudioRepository,
     private val tariffRepository: TariffRepository,
-    var customer: Customer,
-    var tariff: Tariff,
 ) : ViewModel() {
 
+    private lateinit var customer: Customer
+    private lateinit var tariff: Tariff
 
     private suspend fun getCurrentCustomer(id: Int): Customer? {
         if (id == null) {

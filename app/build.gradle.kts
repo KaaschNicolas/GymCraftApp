@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     //id("kotlin-android-extensions")
-    //id("com.google.dagger.hilt.android")
+    id("dagger.hilt.android.plugin")
     //kotlin("kapt") version "1.9.21"
 }
 
@@ -107,7 +107,7 @@ dependencies {
     val dagger_version = "2.48"
     implementation("com.google.dagger:hilt-android:$dagger_version")
     kapt("com.google.dagger:hilt-android-compiler:$dagger_version")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
+    //implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
