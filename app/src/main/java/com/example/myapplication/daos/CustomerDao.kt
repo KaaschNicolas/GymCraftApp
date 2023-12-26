@@ -5,17 +5,24 @@ import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
 import com.example.myapplication.models.Customer
+//import com.example.myapplication.models.CustomerAndTariff
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CustomerDao {
     @Upsert
-    suspend fun save(customer: Customer)
+    fun save(customer: Customer)
 
-    @Query("SELECT * FROM Customer ORDER BY firstName")
-    suspend fun getAll(): Flow<List<Customer>>
+    @Query("SELECT * FROM Customer")
+
+    fun getAll(): List<Customer>
 
     @Transaction
     @Query("SELECT * FROM Customer WHERE id = :id")
-    suspend fun getOneById(id: Int): Customer
+    fun getOneById(id: Int): Customer
+
+    /*@Transaction
+    @Query("SELECT * FROM Customer WHERE id = :id")
+    fun getOneWithTariffById(id: Int): CustomerAndTariff
+    */
 }

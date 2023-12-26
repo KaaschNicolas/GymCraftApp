@@ -8,15 +8,15 @@ class CustomerStudioRepository
 @Inject constructor(
     private val customerStudioMappingDao: CustomerStudioMappingDao
 ) {
-    suspend fun save(customerStudioMapping: CustomerStudioMapping)
+    fun save(customerStudioMapping: CustomerStudioMapping)
             = customerStudioMappingDao.insert(customerStudioMapping)
 
-    suspend fun delete(customerStudioMapping: CustomerStudioMapping)
+    fun delete(customerStudioMapping: CustomerStudioMapping)
             = customerStudioMappingDao.delete(customerStudioMapping)
 
-    suspend fun getAll() = customerStudioMappingDao.getAll()
+    fun getAll() = customerStudioMappingDao.getAll()
 
-    suspend fun getMappingsByCourseId(id: Int) = customerStudioMappingDao.getMappingsByStudioId(id)
+    fun getMappingsByCourseId(id: Int) = customerStudioMappingDao.getMappingsByStudioId(id)
 
-    suspend fun getMappingsByCustomerId(id: Int) = customerStudioMappingDao.getMappingsByCustomerId(id)
+    fun getMappingsByCustomerId(id: Int) = customerStudioMappingDao.getMappingsByCustomerId(id)
 }

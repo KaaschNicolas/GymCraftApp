@@ -12,4 +12,5 @@ data class Course(
     var description: String,
     var date: Date,
     var maxNumberOfEntrants: Int,
+    var imageId: Int
 )
