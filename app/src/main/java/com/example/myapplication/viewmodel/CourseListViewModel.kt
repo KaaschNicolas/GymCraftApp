@@ -14,16 +14,14 @@ class CourseListViewModel @Inject constructor(
 
     private lateinit var courses: List<Course>
 
-    private suspend fun fillCourses() {
+    private fun fillCourses() {
         courseRepository.getAll().let {it ->
             courses = it
         }
     }
 
      fun getCourses(): List<Course> {
-        runBlocking {
-            fillCourses()
-        }
+        fillCourses()
 
         return courses
     }

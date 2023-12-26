@@ -21,17 +21,19 @@ class CourseListFragment(
     var lv: ListView? = null
 ) : Fragment(R.layout.fragment_course_list) {
 
-    private lateinit var viewModel: CourseListViewModel
+    private var viewModel: CourseListViewModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        viewModel = ViewModelProvider(this).get(CourseListViewModel::class.java)
+
         var view: View = inflater.inflate(R.layout.fragment_course_list, container, false)
         var lv = view.findViewById<ListView>(R.id.courseLv)
 
-        var courses = viewModel.getCourses()
+        var courses = viewModel?.getCourses()
 
         val activityContext = activity
 

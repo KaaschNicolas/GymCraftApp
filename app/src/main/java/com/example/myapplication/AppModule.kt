@@ -23,7 +23,8 @@ object AppModule {
         GymCraftDatabase::class.java,
         "GymDB"
     )
-        .createFromFile(File("./sampledata/Prepop.sql"))
+        .allowMainThreadQueries()
+        //.createFromFile(File("./sampledata/Prepop.sql"))
         .build()
 
     @Singleton

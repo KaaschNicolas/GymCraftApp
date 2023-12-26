@@ -8,13 +8,13 @@ class TariffRepository
 @Inject constructor(
     private val tariffDao: TariffDao
 ) {
-    suspend fun save(tariff: Tariff) = tariffDao.saveTariff(tariff)
+    fun save(tariff: Tariff) = tariffDao.saveTariff(tariff)
 
-    suspend fun delete(tariff: Tariff) = tariffDao.deleteTariff(tariff)
+    fun delete(tariff: Tariff) = tariffDao.deleteTariff(tariff)
 
-    suspend fun getAll() = tariffDao.getAll()
+    fun getAll() = tariffDao.getAll()
 
-    suspend fun getOneById(id: Int) = tariffDao.getOneById(id)
+    fun getOneById(id: Int) = tariffDao.getOneById(id)
 
-    suspend fun getOneByCustomerId(id: Int) = tariffDao.getOneByCustomerId(id)
+    fun getOneByCustomerId(id: Int) = tariffDao.getOneByCustomerId(id)
 }

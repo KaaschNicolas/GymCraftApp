@@ -15,7 +15,9 @@ import com.example.myapplication.adapters.TabAdapter
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

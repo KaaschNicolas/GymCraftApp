@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface StudioDao {
     @Upsert
-   fun save(studio: Studio)
+    fun save(studio: Studio)
 
     @Delete
     fun delete(studio: Studio)
