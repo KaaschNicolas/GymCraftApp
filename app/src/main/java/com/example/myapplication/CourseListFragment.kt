@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,7 @@ class CourseListFragment(
         savedInstanceState: Bundle?
     ): View? {
 
+        Log.i("CourseListFragment", "onCreateView")
         viewModel = ViewModelProvider(this).get(CourseListViewModel::class.java)
 
         var view: View = inflater.inflate(R.layout.fragment_course_list, container, false)
@@ -35,8 +37,9 @@ class CourseListFragment(
 
         var courses = viewModel?.getCourses()
 
-        val activityContext = activity
+        Log.i("CourseListFragment", "${courses?.count()}")
 
+        val activityContext = activity
         if (activityContext != null) {
             var arrayAdapter = CourseListAdapter(activityContext, ArrayList(courses))
             lv.adapter = arrayAdapter
@@ -46,7 +49,7 @@ class CourseListFragment(
             val element = parent.getItemAtPosition(position)
 
             // navigate to next activity/fragment here
-            //val intent = Intent(this, CourseDetailActivity::class.java)
+            //val intent = Intent(getActivity(), CourseDetailActivity::class.java)
             //startActivity(intent)
         }
 

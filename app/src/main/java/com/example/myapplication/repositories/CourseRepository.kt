@@ -15,4 +15,5 @@ class CourseRepository
     fun getAll() = courseDao.getAll()
 
     fun getOneById(id: Int) = courseDao.getOneById(id)
+
 }
