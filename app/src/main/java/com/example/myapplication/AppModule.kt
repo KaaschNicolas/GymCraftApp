@@ -9,6 +9,7 @@ import com.example.myapplication.daos.CustomerDao
 import com.example.myapplication.models.Address
 import com.example.myapplication.models.Course
 import com.example.myapplication.models.Customer
+import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +31,6 @@ object AppModule {
     fun provideGymCraftDatabase(
         @ApplicationContext app: Context,
         courseDaoProvider: Provider<CourseDao>,
-        customerDaoProvider: Provider<CustomerDao>,
     ) = Room.databaseBuilder(
         app,
         GymCraftDatabase::class.java,
@@ -38,11 +38,10 @@ object AppModule {
     )
         .allowMainThreadQueries()
         .addCallback(object: RoomDatabase.Callback() {
-            override fun onOpen(db: SupportSQLiteDatabase) {
+            override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
 
                 val courseDao = courseDaoProvider.get()
-                val customerDao = customerDaoProvider.get()
                 val courses = courseDao.getAll()
                 courses.forEach { courseDao.delete(it)}
 
@@ -101,8 +100,6 @@ object AppModule {
                     memberSince = date,
                     memberNumber = UUID.randomUUID()
                 )
-
-                customerDao.save(customer)
             }
         })
         .build()
