@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -37,36 +38,18 @@ class MainActivity : ComponentActivity() {
             val password = password.text.toString()
 
             TODO("Placeholder ersetzten")
-            if(username == "user" && password == "password123") {
-                Toast.makeText(this@MainActivity, "Anmeldung erfolgreich", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this@MainActivity, "Anmeldung fehlgeschlagen.", Toast.LENGTH_SHORT).show()
-            }
-        })
-
-        //setContent {
-            //MyApplicationTheme {
-                // A surface container using the 'background' color from the theme
-                //Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                   // Greeting("Android")
-               // }
+            //if (username == "user" && password == "password123") {
+              // Toast.makeText(this@MainActivity, "Anmeldung erfolgreich", Toast.LENGTH_SHORT).show();
+                openOverview();
+           // } else {
+            //    Toast.makeText(this@MainActivity, "Anmeldung fehlgeschlagen.", Toast.LENGTH_SHORT).show()
            // }
-        //}
+        })
     }
+    fun openOverview() {
+        val intent = Intent(this, OverviewActivity::class.java)
+        startActivity(intent)
+   }
+
 }
 
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier) {
-  //  Text(
-     //       text = "Hello $name!",
-     //       modifier = modifier
-  //  )
-//}
-
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
- //   MyApplicationTheme {
-   //     Greeting("Android")
-  //  }
-//}

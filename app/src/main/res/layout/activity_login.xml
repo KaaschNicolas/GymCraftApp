@@ -17,16 +17,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
-        android:layout_marginTop="20dp"
-        android:inputType="textPassword"
-        android:hint="Passwort" />
+        android:layout_marginTop="189dp"
+        android:hint="Passwort"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
+        android:layout_width="297dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="184dp"
         android:text="Login" />
 
 </RelativeLayout>
