@@ -7,6 +7,7 @@ import com.example.myapplication.converters.Converters
 import com.example.myapplication.daos.CourseDao
 import com.example.myapplication.daos.CustomerCourseMappingDao
 import com.example.myapplication.daos.CustomerDao
+import com.example.myapplication.daos.CustomerStudioMappingDao
 import com.example.myapplication.daos.StudioDao
 import com.example.myapplication.daos.TariffDao
 import com.example.myapplication.models.Address
@@ -35,6 +36,8 @@ abstract class GymCraftDatabase : RoomDatabase() {
     abstract fun getCustomerDao(): CustomerDao
 
     abstract fun getCustomerCourseMappingDao(): CustomerCourseMappingDao
+
+    abstract fun getCustomerStudioMappingDao(): CustomerStudioMappingDao
 
     abstract fun getCourseDao(): CourseDao
 

@@ -14,7 +14,7 @@ import java.util.UUID
             entity = Tariff::class,
             parentColumns = ["id"],
             childColumns = ["id"]
-        )
+        ),
     ]
 )
 data class Customer(
@@ -32,8 +32,6 @@ data class Customer(
     var weight: Float,
     var memberSince: Date,
     var memberNumber: UUID,
-    @Embedded(prefix = "studio_")
-    var studio: Studio,
 ) {
 
 

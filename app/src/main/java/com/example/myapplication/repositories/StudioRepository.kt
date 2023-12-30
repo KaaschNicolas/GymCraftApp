@@ -8,11 +8,11 @@ class StudioRepository
 @Inject constructor(
     private val studioDao: StudioDao
 ){
-    suspend fun save(studio: Studio) = studioDao.save(studio)
+    fun save(studio: Studio) = studioDao.save(studio)
 
-    suspend fun delete(studio: Studio) = studioDao.save(studio)
+    fun delete(studio: Studio) = studioDao.save(studio)
 
-    suspend fun getAll() = studioDao.getAll()
+    fun getAll() = studioDao.getAll()
 
-    suspend fun getOneById(id: Int) = studioDao.getOneById(id)
+    fun getOneById(id: Int) = studioDao.getOneById(id)
 }
