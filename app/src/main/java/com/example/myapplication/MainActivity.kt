@@ -9,8 +9,15 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.adapters.TabAdapter
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.models.Course
+import com.example.myapplication.repositories.CourseRepository
+import com.example.myapplication.ui.theme.MyApplicationTheme
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.Date
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -47,5 +54,6 @@ class MainActivity : ComponentActivity() {
         val intent = Intent(this, OverviewActivity::class.java)
         startActivity(intent)
     }
+
 
 }

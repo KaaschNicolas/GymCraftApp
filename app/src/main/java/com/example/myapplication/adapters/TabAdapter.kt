@@ -9,7 +9,7 @@ class TabAdapter(
     private val activity: AppCompatActivity
 ) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
-        return 3
+        return 4
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -19,6 +19,7 @@ class TabAdapter(
             0 -> CourseListFragment()
             1 -> CourseListFragment()
             2 -> CourseListFragment()
+            3 -> CourseListFragment()
             else -> throw RuntimeException("Invalid position: $position")
         }
     }
