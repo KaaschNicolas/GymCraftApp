@@ -39,11 +39,11 @@ class MainActivity : ComponentActivity() {
         loginBtn.setOnClickListener(View.OnClickListener {
             val username = username.text.toString()
             val password = password.text.toString()
+            openOverview();
 
             TODO("Placeholder ersetzten")
             //if (username == "user" && password == "password123") {
             // Toast.makeText(this@MainActivity, "Anmeldung erfolgreich", Toast.LENGTH_SHORT).show();
-            openOverview();
             // } else {
             //    Toast.makeText(this@MainActivity, "Anmeldung fehlgeschlagen.", Toast.LENGTH_SHORT).show()
             // }

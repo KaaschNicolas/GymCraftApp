@@ -60,5 +60,4 @@ class CourseListFragment(
         super.onViewCreated(view, savedInstanceState)
     }
 
-
 }
