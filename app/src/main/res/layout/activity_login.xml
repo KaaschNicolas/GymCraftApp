@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+ <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+    android:layout_marginTop="60dp"
+    android:src="@drawable/gymcraft_logo"
+    android:contentDescription="Logo" />
+
+<EditText
+android:id="@+id/username"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_centerVertical="true"
+android:hint="Benutzername"
+android:background="@drawable/edit_text_background"
+android:padding="10dp"
+android:textColor="@color/colorPrimary" />
+
+<EditText
+android:id="@+id/password"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/username"
+android:layout_marginTop="16dp"
+android:hint="Passwort"
+android:inputType="textPassword"
+android:background="@drawable/edit_text_background"
+    android:padding="10dp"
+    android:textColor="@android:color/white" />
+
+<Button
+android:id="@+id/loginBtn"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/password"
+android:layout_marginTop="16dp"
+android:background="@drawable/button_background"
+    android:text="Login"
+    android:textColor="@color/colorPrimary" />
+
+    </RelativeLayout>

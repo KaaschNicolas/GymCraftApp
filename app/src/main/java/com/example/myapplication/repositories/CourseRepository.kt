@@ -8,11 +8,12 @@ class CourseRepository
 @Inject constructor(
         private val courseDao: CourseDao
     ) {
-    suspend fun save(course: Course) = courseDao.save(course)
+    fun save(course: Course) = courseDao.save(course)
 
-    suspend fun delete(course: Course) = courseDao.delete(course)
+    fun delete(course: Course) = courseDao.delete(course)
 
-    suspend fun getAll() = courseDao.getAll()
+    fun getAll() = courseDao.getAll()
 
-    suspend fun getOneById(id: Int) = courseDao.getOneById(id)
+    fun getOneById(id: Int) = courseDao.getOneById(id)
+
 }

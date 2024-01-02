@@ -7,9 +7,9 @@ data class CustomerAndTariff(
     @Embedded()
     val customer: Customer,
     @Relation(
-        entity = Tariff::class,
-        parentColumn = "tariffId",
-        entityColumn = "customerId"
+        parentColumn = "id",
+        entityColumn = "customer_Id"
     )
-    val tariff: Tariff,
+    val tariff: Tariff
 )
+

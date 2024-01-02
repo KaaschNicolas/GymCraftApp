@@ -7,7 +7,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import com.example.myapplication.models.CustomerCourseMapping
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CustomerCourseMappingDao {
@@ -27,6 +26,6 @@ interface CustomerCourseMappingDao {
 
     @Transaction
     @Query("SELECT * FROM CustomerCourseMapping WHERE customerId = :id")
-    suspend fun getMappingsByCustomerId(id: Int): CustomerCourseMapping
+    fun getMappingsByCustomerId(id: Int): List<CustomerCourseMapping>
 
 }

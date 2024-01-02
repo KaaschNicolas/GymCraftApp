@@ -8,15 +8,15 @@ class CustomerCourseRepository
 @Inject constructor(
     private val customerCourseMappingDao: CustomerCourseMappingDao
 ) {
-    suspend fun save(customerCourseMapping: CustomerCourseMapping)
+    fun save(customerCourseMapping: CustomerCourseMapping)
         = customerCourseMappingDao.insert(customerCourseMapping)
 
-    suspend fun delete(customerCourseMapping: CustomerCourseMapping)
+    fun delete(customerCourseMapping: CustomerCourseMapping)
         = customerCourseMappingDao.delete(customerCourseMapping)
 
-    suspend fun getAll() = customerCourseMappingDao.getAll()
+    fun getAll() = customerCourseMappingDao.getAll()
 
-    suspend fun getMappingsByCourseId(id: Int) = customerCourseMappingDao.getMappingsByCourseId(id)
+    fun getMappingsByCourseId(id: Int) = customerCourseMappingDao.getMappingsByCourseId(id)
 
-    suspend fun getMappingsByCustomerId(id: Int) = customerCourseMappingDao.getMappingsByCustomerId(id)
+    fun getMappingsByCustomerId(id: Int) = customerCourseMappingDao.getMappingsByCustomerId(id)
 }

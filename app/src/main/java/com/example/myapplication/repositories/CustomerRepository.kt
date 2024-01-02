@@ -12,11 +12,11 @@ class CustomerRepository
     private val customerDao: CustomerDao
 ) {
     @Upsert
-    suspend fun saveCustomer(customer: Customer) = customerDao.save(customer)
+    fun saveCustomer(customer: Customer) = customerDao.save(customer)
 
-    suspend fun getAll() = customerDao.getAll()
+    fun getAll() = customerDao.getAll()
 
-    suspend fun getOneById(id: Int) = customerDao.getOneById(id)
+    fun getOneById(id: Int) = customerDao.getOneById(id)
 
-    suspend fun getOneWithTariffById(id: Int) = customerDao.getOneWithTariffById(id)
+    //suspend fun getOneWithTariffById(id: Int) = customerDao.getOneWithTariffById(id)
 }
