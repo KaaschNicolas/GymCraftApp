@@ -7,6 +7,14 @@
     android:background="@color/colorPrimary"
     android:padding="16dp"
     tools:context=".MainActivity">
+ <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+    android:layout_marginTop="60dp"
+    android:src="@drawable/gymcraft_logo"
+    android:contentDescription="Logo" />
 
 <EditText
 android:id="@+id/username"
