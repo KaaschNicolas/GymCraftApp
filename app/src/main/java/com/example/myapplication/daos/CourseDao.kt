@@ -10,12 +10,14 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CourseDao {
+
     @Upsert
     fun save(course: Course)
 
     @Delete
     fun delete(course: Course)
 
+    @Transaction
     @Query("SELECT * FROM Course ORDER BY name")
     fun getAll(): List<Course>
 

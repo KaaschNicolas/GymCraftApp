@@ -31,6 +31,7 @@ import com.example.myapplication.models.Studio
         Studio::class,
         Address::class,
        ],
+    exportSchema = false,
     version = 1
 )
 @TypeConverters(Converters::class)
