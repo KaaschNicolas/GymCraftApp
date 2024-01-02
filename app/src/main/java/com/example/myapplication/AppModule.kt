@@ -42,8 +42,8 @@ object AppModule {
                 super.onCreate(db)
 
                 val courseDao = courseDaoProvider.get()
-                val courses = courseDao.getAll()
-                courses.forEach { courseDao.delete(it)}
+                /*val courses = courseDao.getAll()
+                courses.forEach { courseDao.delete(it)}*/
 
                 val date = Date()
 
