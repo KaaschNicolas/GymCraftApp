@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
             val password = password.text.toString()
             openOverview();
 
-            TODO("Placeholder ersetzten")
+            //TODO("Placeholder ersetzten")
             //if (username == "user" && password == "password123") {
             // Toast.makeText(this@MainActivity, "Anmeldung erfolgreich", Toast.LENGTH_SHORT).show();
             // } else {
