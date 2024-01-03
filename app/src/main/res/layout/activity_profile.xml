@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/roundImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/course_sample"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Statistik"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundImage"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Einstellung"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/roundImage" />
+
+    <Button
+        android:id="@+id/mitgliedschaftButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text="Mitgliedschaft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text="Chatfunktion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mitgliedschaftButton" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text="Freunde"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text="Ausloggen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

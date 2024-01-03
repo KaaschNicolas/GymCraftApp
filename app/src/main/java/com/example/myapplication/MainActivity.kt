@@ -1,6 +1,9 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -25,8 +28,17 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private lateinit var profileButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setContentView(R.layout.activity_main)
+        profileButton = findViewById(R.id.profile)
+
+        profileButton.setOnClickListener({
+            val profilePage = Intent(this, ActivityProfile::class.java)
+            startActivity(profilePage)
+            finish()
+        })
         super.onCreate(savedInstanceState)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -37,9 +49,10 @@ class MainActivity : AppCompatActivity() {
                 0 -> tab.text = "News"
                 1 -> tab.text = "Kurs"
                 2 -> tab.text = "Studio"
-                3 -> tab.text = "Mein Profil"
+                //3 -> tab.text = "Mein Profil"
             }
         }
+
 
         binding.viewPager.adapter = TabAdapter(this)
         tabLayoutMediator.attach()

@@ -18,6 +18,7 @@
             android:exported="false"
             android:label="@string/title_activity_course_detail"
             android:theme="@style/Theme.MaterialComponents" />
+        <activity android:name=".ActivityProfile"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
