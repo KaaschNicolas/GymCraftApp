@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val profileFragment = ProfileFragment()
-
         super.onCreate(savedInstanceState)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -49,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewPager.adapter = TabAdapter(this)
         tabLayoutMediator.attach()
+
     }
 
 }

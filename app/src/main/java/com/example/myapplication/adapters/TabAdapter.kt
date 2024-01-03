@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.myapplication.CourseListFragment
+import com.example.myapplication.ProfileFragment
 
 class TabAdapter(
     private val activity: AppCompatActivity
@@ -14,12 +15,11 @@ class TabAdapter(
 
     override fun createFragment(position: Int): Fragment {
 
-
         return when(position) {
             0 -> CourseListFragment()
             1 -> CourseListFragment()
             2 -> CourseListFragment()
-            3 -> CourseListFragment()
+            3 -> ProfileFragment()
             else -> throw RuntimeException("Invalid position: $position")
         }
     }
