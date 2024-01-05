@@ -57,7 +57,7 @@
         app:layout_constraintGuide_percent="0.5"/>
 
     <Button
-        android:id="@+id/membershipChange"
+        android:id="@+id/membershipChangeButton"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
