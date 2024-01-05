@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".OverviewActivity"
     >
 
     <RelativeLayout
@@ -23,7 +23,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="20dp"
-            android:src="@drawable/course_sample"/>
+            android:src="@drawable/course_sample"/> >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/courseName"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 android:text="Pumpen bis der Arzt kommt"/>
