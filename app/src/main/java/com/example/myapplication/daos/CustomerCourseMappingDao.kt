@@ -28,4 +28,8 @@ interface CustomerCourseMappingDao {
     @Query("SELECT * FROM CustomerCourseMapping WHERE customerId = :id")
     fun getMappingsByCustomerId(id: Int): List<CustomerCourseMapping>
 
+    @Transaction
+    @Query("SELECT * FROM CustomerCourseMapping WHERE customerId = :customerId AND courseId = :courseId")
+    fun checkMappingExists(customerId: Int, courseId: Int?): CustomerCourseMapping?
+
 }
