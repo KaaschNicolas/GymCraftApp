@@ -12,7 +12,7 @@ class LoginViewModel @Inject constructor(
     private val customerService: CustomerService,
     private val customerRepository: CustomerRepository
 ): ViewModel() {
-        fun checkLogin(password: String, username: String): Boolean {
+    fun checkLogin(password: String, username: String): Boolean {
         val customerByUsername = customerRepository.getOneByUsername(username)
         return if (customerByUsername.password == password) {
             setUser(customerByUsername)
@@ -20,6 +20,10 @@ class LoginViewModel @Inject constructor(
         } else {
             false
         }
+    }
+
+    fun triggerDB() {
+        customerRepository.getAll()
     }
 
     private fun setUser(customer: Customer) {

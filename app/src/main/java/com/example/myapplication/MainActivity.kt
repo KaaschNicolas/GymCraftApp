@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-
+        viewModel?.triggerDB()
         setContentView(R.layout.activity_login)
 
         //Intialisierung der Views
@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
             val username = username.text.toString()
             val password = password.text.toString()
 
-            val isValidUser = CheckLogin(username, password)
+            val isValidUser = checkLogin(username, password)
 
             if (isValidUser == true) {
                 openOverview();
@@ -74,8 +74,7 @@ class MainActivity : ComponentActivity() {
         })
     }
 
-    private fun CheckLogin(username: String, password: String) = viewModel?.checkLogin(password, username)
-
+    private fun checkLogin(username: String, password: String) = viewModel?.checkLogin(password, username)
 
     private fun openOverview() {
         //Log.i("Login", "${customerService != null}")

@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CustomerDao {
+
     @Upsert
     fun save(customer: Customer)
 
