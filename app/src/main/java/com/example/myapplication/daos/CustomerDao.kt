@@ -21,8 +21,9 @@ interface CustomerDao {
     @Query("SELECT * FROM Customer WHERE id = :id")
     fun getOneById(id: Int): Customer
 
-    /*@Transaction
-    @Query("SELECT * FROM Customer WHERE id = :id")
-    fun getOneWithTariffById(id: Int): CustomerAndTariff
-    */
+
+    @Transaction
+    @Query("SELECT * FROM CUSTOMER WHERE username = :username")
+    fun getOneByUsername(username: String): Customer
+
 }

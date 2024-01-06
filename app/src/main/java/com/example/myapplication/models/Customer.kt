@@ -22,8 +22,6 @@ data class Customer(
     val id: Int = 0,
     var lastName: String,
     var firstName: String,
-    @Embedded("address_")
-    var address: Address,
     var username: String,
     var password: String,
     var email: String,
