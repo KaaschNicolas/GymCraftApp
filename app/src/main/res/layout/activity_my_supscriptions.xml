@@ -1,7 +1,7 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -9,7 +9,7 @@
         android:padding="16dp"
         android:id="@+id/fragment_profile">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,13 +17,11 @@
             android:layout_alignParentStart="true"
             android:hint="Tariffe"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
+        <ListView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editText"
-            android:layout_alignParentStart="true"
-            android:paddingTop="8dp"/>
+            android:id="@+id/courseLv"
+            tools:listitem="@layout/subscription_list_item"/>
 
     </RelativeLayout>
 
