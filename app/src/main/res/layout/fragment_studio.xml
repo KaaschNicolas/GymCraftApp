@@ -4,33 +4,39 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:contentDescription="Capacity"
-        android:src="@drawable/capacity" />
+    <LinearLayout
+        android:id="@+id/firstBox"
+        android:layout_width="135dp"
+        android:layout_height="139dp"
+        android:layout_below="@id/topBox"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="-121dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@+id/topBox"
+        android:background="@drawable/round_box"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/auslastung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/topBox"
-        android:layout_width="266dp"
+        android:layout_width="184dp"
         android:layout_height="121dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Füge hier die Inhalte für die Besucherauslastung hinzu -->
-        <!-- Beispiel: -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Durchschnittliche Besucherauslastung"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,36 +45,47 @@
         android:layout_height="196dp"
         android:layout_below="@id/topBox"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="43dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Füge hier die Informationen zum Studio hinzu -->
-        <!-- Beispiel: -->
         <TextView
+            android:id="@+id/studioName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Studio XYZ\nÖffnungszeiten: Mo-Fr 8-22 Uhr\nSa-So 10-18 Uhr"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/openingHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottomLeftBox"
-        android:layout_width="180dp"
-        android:layout_height="173dp"
+        android:layout_width="179dp"
+        android:layout_height="137dp"
         android:layout_below="@id/middleBox"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
         android:padding="30dp">
 
-        <!-- Füge hier den Text für Geräte hinzu -->
-        <!-- Beispiel: -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,11 +96,11 @@
 
     <LinearLayout
         android:id="@+id/bottomRightBox"
-        android:layout_width="194dp"
-        android:layout_height="173dp"
+        android:layout_width="197dp"
+        android:layout_height="138dp"
         android:layout_below="@+id/middleBox"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_toEndOf="@+id/bottomLeftBox"
         android:layout_weight="1"
@@ -91,8 +108,6 @@
         android:orientation="vertical"
         android:padding="30dp">
 
-        <!-- Füge hier den Text für Trainingsplan hinzu -->
-        <!-- Beispiel: -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,6 +115,13 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/Capacity"
+        android:layout_width="342dp"
+        android:layout_height="73dp"
+        android:contentDescription="Capacity"
+        android:src="@drawable/meancapacity" />
 
 
 </RelativeLayout>
