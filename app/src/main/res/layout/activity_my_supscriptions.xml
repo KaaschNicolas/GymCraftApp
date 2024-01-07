@@ -20,7 +20,7 @@
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/courseLv"
+            android:id="@+id/subscriptionLv"
             tools:listitem="@layout/subscription_list_item"/>
 
     </RelativeLayout>
