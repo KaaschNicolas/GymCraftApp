@@ -8,15 +8,7 @@ import java.util.Date
 import java.util.UUID
 
 
-@Entity(
-    foreignKeys = [
-        ForeignKey(
-            entity = Tariff::class,
-            parentColumns = ["id"],
-            childColumns = ["id"]
-        ),
-    ]
-)
+@Entity
 data class Customer(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,

@@ -38,6 +38,8 @@ class CourseViewModel @Inject constructor(
             }
             return false
         }
-
+    }
+    fun countParticipants(courseId: Int = 1): Int {
+        return customerCourseRepository.getMappingsByCourseId(courseId).size
     }
 }

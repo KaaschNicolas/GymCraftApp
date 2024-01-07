@@ -49,6 +49,7 @@ object AppModule {
                     val date = Date()
 
                     val course1 = Course(
+                        id = 1,
                         name = "Test1",
                         description = "Description1",
                         date = date,
@@ -57,7 +58,7 @@ object AppModule {
                     )
 
                     val course2 = Course(
-
+                        id = 2,
                         name = "Test2",
                         description = "Description2",
                         date = date,
@@ -66,7 +67,7 @@ object AppModule {
                     )
 
                     val course3 = Course(
-
+                        id = 3,
                         name = "Test3",
                         description = "Description3",
                         date = date,
@@ -76,6 +77,34 @@ object AppModule {
 
                     val courseList: List<Course> = arrayListOf(course1, course2, course3)
                     courseList.forEach { courseDao.save(it) }
+
+                    val customerDao = it.getCustomerDao()
+
+                    val customer = Customer(
+                        id = 1,
+                        lastName = "Kaasch",
+                        firstName = "Nicolas",
+                        Address(
+                            id = 1,
+                            city = "Karlsruhe",
+                            street = "Zähringerstraße",
+                            district = "Oststadt",
+                            houseNumber = "5",
+                            houseNumberAddition = "d",
+                            postalCode = 76131,
+                            mailbox = "testbox",
+                        ),
+                        username ="knicolas",
+                        password = "Test1234",
+                        email = "nicolas.kaasch@test.de",
+                        birthday = date,
+                        height = 1.85f,
+                        weight = 80f,
+                        memberSince = date,
+                        memberNumber = UUID.randomUUID()
+                    )
+
+                    customerDao.save(customer)
                 }
             }
 
