@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:contentDescription="Capacity"
+        android:src="@drawable/capacity" />
+
+    <LinearLayout
+        android:id="@+id/topBox"
+        android:layout_width="266dp"
+        android:layout_height="121dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_box"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Füge hier die Inhalte für die Besucherauslastung hinzu -->
+        <!-- Beispiel: -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Durchschnittliche Besucherauslastung"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/middleBox"
+        android:layout_width="380dp"
+        android:layout_height="196dp"
+        android:layout_below="@id/topBox"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_box"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Füge hier die Informationen zum Studio hinzu -->
+        <!-- Beispiel: -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Studio XYZ\nÖffnungszeiten: Mo-Fr 8-22 Uhr\nSa-So 10-18 Uhr"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomLeftBox"
+        android:layout_width="180dp"
+        android:layout_height="173dp"
+        android:layout_below="@id/middleBox"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/round_box"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <!-- Füge hier den Text für Geräte hinzu -->
+        <!-- Beispiel: -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geräte"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomRightBox"
+        android:layout_width="194dp"
+        android:layout_height="173dp"
+        android:layout_below="@+id/middleBox"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@+id/bottomLeftBox"
+        android:layout_weight="1"
+        android:background="@drawable/round_box"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <!-- Füge hier den Text für Trainingsplan hinzu -->
+        <!-- Beispiel: -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trainingspläne"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

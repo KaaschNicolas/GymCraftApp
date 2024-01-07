@@ -24,15 +24,15 @@ class CourseListViewModel @Inject constructor(
     }
 
     private fun fillCourses() {
-
+        courseRepository.getAll().let {
+            courses = it
+        }
     }
 
      fun getCourses(): List<Course> {
-         courseRepository.getAll().let {
-             courses = it
-         }
+        fillCourses()
 
-         return courses
+        return courses
     }
 
     fun getMyCourses() : List<Course> {

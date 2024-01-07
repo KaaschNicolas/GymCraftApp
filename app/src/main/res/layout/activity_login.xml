@@ -38,14 +38,14 @@ android:background="@drawable/edit_text_background"
     android:padding="10dp"
     android:textColor="@android:color/white" />
 
-<Button
-android:id="@+id/loginBtn"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_below="@id/password"
-android:layout_marginTop="16dp"
-android:background="@drawable/button_background"
-    android:text="Login"
-    android:textColor="@color/colorPrimary" />
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_background"
+        android:text="Login"
+        android:textColor="@color/colorPrimary" />
 
-    </RelativeLayout>
+</RelativeLayout>
