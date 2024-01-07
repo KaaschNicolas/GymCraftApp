@@ -40,7 +40,7 @@ class SubscriptionListAdapter(
         message.text = arrayList[position].description
         msgCost.text = arrayList[position].price.toString()
 
-        //TODO: id to name and adding pictures maybe?
+        //TODO: id to name and adding pictures maybe??
         return view
     }
 
