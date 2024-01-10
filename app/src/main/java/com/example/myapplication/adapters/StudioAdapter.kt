@@ -1,4 +1,7 @@
 package com.example.myapplication.adapters
 
-class StudioAdapter {
+import androidx.fragment.app.FragmentActivity
+
+class StudioAdapter (
+    private val context: FragmentActivity){
 }
