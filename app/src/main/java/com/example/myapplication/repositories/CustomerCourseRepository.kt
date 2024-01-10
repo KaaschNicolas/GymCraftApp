@@ -19,4 +19,6 @@ class CustomerCourseRepository
     fun getMappingsByCourseId(id: Int) = customerCourseMappingDao.getMappingsByCourseId(id)
 
     fun getMappingsByCustomerId(id: Int) = customerCourseMappingDao.getMappingsByCustomerId(id)
+
+    fun checkMappingExists(customerId: Int, courseId: Int? = 1) = customerCourseMappingDao.checkMappingExists(customerId, courseId)
 }

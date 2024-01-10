@@ -18,5 +18,7 @@ class CustomerRepository
 
     fun getOneById(id: Int) = customerDao.getOneById(id)
 
+    fun getOneByUsername(username: String) = customerDao.getOneByUsername(username)
+
     //suspend fun getOneWithTariffById(id: Int) = customerDao.getOneWithTariffById(id)
 }
