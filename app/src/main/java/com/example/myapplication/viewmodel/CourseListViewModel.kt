@@ -19,7 +19,7 @@ class CourseListViewModel @Inject constructor(
 
     private fun fillMyCourses() {
         var courseMapping = customerCourseRepository.getMappingsByCustomerId(1)
-        
+
 
     }
 
