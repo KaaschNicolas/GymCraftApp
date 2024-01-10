@@ -27,7 +27,7 @@ class CourseListFragment(
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         Log.i("CourseListFragment", "onCreateView")
         viewModel = ViewModelProvider(this).get(CourseListViewModel::class.java)
@@ -49,16 +49,12 @@ class CourseListFragment(
             val element = courses?.get(position)
 
             //navigate to next activity/fragment here
-            val intent = Intent(getActivity(), CourseDetailActivity::class.java)
+            val intent = Intent(activity, CourseDetailActivity::class.java)
             intent.putExtra("course", element?.id)
             startActivity(intent)
         }
 
         return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
 }
