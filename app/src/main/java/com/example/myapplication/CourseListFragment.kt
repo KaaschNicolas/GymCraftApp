@@ -46,10 +46,11 @@ class CourseListFragment(
         }
 
         lv.setOnItemClickListener { parent, view, position, id ->
-            val element = parent.getItemAtPosition(position)
+            val element = courses?.get(position)
 
             //navigate to next activity/fragment here
             val intent = Intent(getActivity(), CourseDetailActivity::class.java)
+            intent.putExtra("course", element?.id)
             startActivity(intent)
         }
 
