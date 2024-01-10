@@ -2,6 +2,8 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.ComponentActivity
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -38,8 +40,13 @@ class MainActivity : ComponentActivity() {
             val password = password.text.toString()
             openOverview();
 
-        binding.viewPager.adapter = TabAdapter(this)
-        tabLayoutMediator.attach()
+            //TODO("Placeholder ersetzten")
+            //if (username == "user" && password == "password123") {
+            // Toast.makeText(this@MainActivity, "Anmeldung erfolgreich", Toast.LENGTH_SHORT).show();
+            // } else {
+            //    Toast.makeText(this@MainActivity, "Anmeldung fehlgeschlagen.", Toast.LENGTH_SHORT).show()
+            // }
+        })
     }
 
     fun openOverview() {

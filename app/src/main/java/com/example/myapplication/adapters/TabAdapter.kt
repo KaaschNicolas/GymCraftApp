@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.myapplication.CourseListFragment
+import com.example.myapplication.ProfileFragment
+import com.example.myapplication.StudioFragment
 
 class TabAdapter(
     private val activity: AppCompatActivity
