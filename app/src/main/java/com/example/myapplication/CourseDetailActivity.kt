@@ -48,14 +48,14 @@ class CourseDetailActivity : AppCompatActivity() {
 
             }
         }
-        Log.i("checkMappingExists", viewModel?.checkMappingExists(1, course?.id).toString())
-        if (viewModel?.checkMappingExists(1, course?.id) !== null){
+        Log.i("checkMappingExists", viewModel?.checkMappingExists(course?.id).toString())
+        if (viewModel?.checkMappingExists(course?.id) !== null){
             subscriptionButton.text = "Abmelden"
         } else {
             subscriptionButton.text = "Anmelden"
         }
          subscriptionButton.setOnClickListener {
-             val check = viewModel?.subscribeunsubscribe(1, course?.id)
+             val check = viewModel?.subscribeunsubscribe(course?.id)
              if (check == true){
                  val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich abgemeldet", Toast.LENGTH_SHORT)
                  myToast.show() // Show the toast

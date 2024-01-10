@@ -19,11 +19,14 @@ class CourseViewModel @Inject constructor(
         return courseRepository.getOneById(id)
     }
 
-    fun checkMappingExists(customerId: Int, courseId: Int?): CustomerCourseMapping? = customerCourseRepository.checkMappingExists(customerId, courseId)
+    fun checkMappingExists(courseId: Int?): CustomerCourseMapping? {
+        val customer = customerService.getCustomer()
+        return customerCourseRepository.checkMappingExists(customer.id, courseId)
+    }
 
     fun subscribeunsubscribe( courseId: Int?): Boolean {
         val customer = customerService.getCustomer()
-        val res = checkMappingExists(customer.id, courseId)
+        val res = checkMappingExists(courseId)
         if (res !== null) {
             customerCourseRepository.delete(res)
             return true
