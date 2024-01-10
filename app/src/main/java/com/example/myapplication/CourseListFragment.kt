@@ -11,10 +11,12 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.SearchView
 import com.example.myapplication.adapters.CourseListAdapter
 import com.example.myapplication.models.Course
 import com.example.myapplication.viewmodel.CourseListViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -55,6 +57,30 @@ class CourseListFragment(
         }
 
         return view
+    }
+    private fun initSearchCourses() {
+        val searchView = view?.findViewById<View>(R.id.courseListSearchView) as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(s: String?): Boolean {
+                return false
+            }
+            override fun onQueryTextChange(s: String): Boolean {
+                val filteredCourses: ArrayList<Course> = ArrayList<Course>()
+                viewModel?.getCourses()?.let{
+                    for (course in it) {
+                        if (course.name.lowercase().contains(s.lowercase(Locale.getDefault()))) {
+                            filteredCourses.add(course)
+                        }
+                    }
+                }
+                val activityContext = activity
+                if (activityContext != null) {
+                    var arrayAdapter = CourseListAdapter(activityContext, ArrayList(filteredCourses))
+                    lv?.adapter = arrayAdapter
+                }
+                return false
+            }
+        })
     }
 
 }
