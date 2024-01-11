@@ -13,6 +13,7 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +29,7 @@ class ProfileFragment : Fragment() {
             val intent = Intent(requireContext(), MembershipActivity::class.java)
             startActivity(intent)
         }
+        //binding.memberSince.text = "Mitglied seit: " +getCurrentCustomer()
     }
 
     override fun onDestroyView() {
