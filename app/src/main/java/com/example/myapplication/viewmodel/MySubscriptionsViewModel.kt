@@ -16,16 +16,16 @@ class MySubscriptionsViewModel @Inject constructor(
     private lateinit var myTariff: MutableList<Tariff>
     private lateinit var tariffs: List<Tariff>
 
-    private fun fillTariffs() {
+    private fun fillTariffs(): List<Tariff> {
         tariffRepository.getAll().let {
-            tariffs = it
+            return it
         }
     }
 
     fun getTariffs(): List<Tariff> {
-        fillTariffs()
+        return fillTariffs()
 
-        return tariffs
+
     }
 
     fun getMyTariffs() : List<Tariff> {

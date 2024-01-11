@@ -12,7 +12,7 @@ class TariffRepository
 
     fun delete(tariff: Tariff) = tariffDao.deleteTariff(tariff)
 
-    fun getAll() = tariffDao.getAll()
+    fun getAll(): List<Tariff> = tariffDao.getAll()
 
     fun getOneById(id: Int) = tariffDao.getOneById(id)
 
