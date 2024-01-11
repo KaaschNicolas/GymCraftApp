@@ -1,19 +1,16 @@
 package com.example.myapplication.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import com.example.myapplication.R
-import com.example.myapplication.models.Course
 import com.example.myapplication.models.Tariff
-import java.text.SimpleDateFormat
 
 class SubscriptionListAdapter(
-    private val context: FragmentActivity,
+    private val context: Context, //maybe so
     private val arrayList: ArrayList<Tariff>
 ) : BaseAdapter() {
 
@@ -35,9 +32,8 @@ class SubscriptionListAdapter(
 
         //imageView.setImageResource(arrayList[position].imageId)
 
-        //change id to names somewhere in the code
-        name.text = arrayList[position].id.toString()
-        message.text = arrayList[position].description
+        name.text = arrayList[position].description
+        //message.text no need for message
         msgCost.text = arrayList[position].price.toString()
 
         //TODO: id to name and adding pictures maybe??
