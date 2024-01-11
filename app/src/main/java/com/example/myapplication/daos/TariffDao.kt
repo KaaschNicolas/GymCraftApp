@@ -18,7 +18,7 @@ interface TariffDao {
     fun deleteTariff(tariff: Tariff)
 
     @Query("SELECT * FROM Tariff ORDER BY price")
-    fun getAll(): Tariff
+    fun getAll(): List<Tariff>
 
     @Transaction
     @Query("SELECT * FROM Tariff WHERE id = :id")

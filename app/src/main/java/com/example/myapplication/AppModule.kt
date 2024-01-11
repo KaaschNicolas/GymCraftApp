@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.content.Context
 import android.util.Log
+import androidx.room.ColumnInfo
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -10,6 +11,7 @@ import com.example.myapplication.daos.CustomerDao
 import com.example.myapplication.models.Address
 import com.example.myapplication.models.Course
 import com.example.myapplication.models.Customer
+import com.example.myapplication.models.Tariff
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
@@ -113,11 +115,61 @@ object AppModule {
 
                     val courseList: List<Course> = arrayListOf(course1, course2, course3, course4, course5, course6, course7)
                     courseList.forEach { courseDao.save(it) }
+
+                    val tariff1 = Tariff(
+                        id = 1,
+                        price = 0.99f,
+                        duration = date,
+                        description = "Wasser Flatrate",
+                        customerId = 1,
+                    )
+                    val tariff2 = Tariff(
+                        id = 2,
+                        price = 3.98f,
+                        duration = date,
+                        description = "Ernährungsberatung",
+                        customerId = 2,
+                    )
+                    val tariff3 = Tariff(
+                        id = 3,
+                        price = 3.78f,
+                        duration = date,
+                        description = "Gruppenkurse Plus",
+                        customerId = 1,
+                    )
+                    val tariff4 = Tariff(
+                        id = 4,
+                        price = 10.98f,
+                        duration = date,
+                        description = "Monatliche Massage",
+                        customerId = 4,
+                    )
+                    val tariff5 = Tariff(
+                        id = 5,
+                        price = 1.99f,
+                        duration = date,
+                        description = "Premium Getränkeservice",
+                        customerId = 3,
+                    )
+                    val tariff6 = Tariff(
+                        id = 6,
+                        price = 1.98f,
+                        duration = date,
+                        description = "Proteinregel Flatrate",
+                        customerId = 2,
+                    )
+                    val tariff7 = Tariff(
+                        id = 7,
+                        price = 15.99f,
+                        duration = date,
+                        description = "Personal Trainer Sitzung",
+                        customerId = 1,
+                    )
+                    val tariffDao = it.getTariffDao()
+                    val tariffList: List<Tariff> = arrayListOf(tariff1, tariff2, tariff3, tariff4, tariff5, tariff6, tariff7)
+                    tariffList.forEach { tariffDao.saveTariff(it) }
                 }
             }
-
-
-
         }
     }
 

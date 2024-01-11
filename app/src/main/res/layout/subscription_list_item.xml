@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/subscriptionName"
                 android:textColor="@color/white"
-                android:textSize="26sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="Tarif x"/>
 
@@ -45,17 +45,24 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/message"
                 android:layout_marginTop="5dp"
-                android:text="hier ein Beispieltext"/>
+                android:text=""/>
         </LinearLayout>
         </LinearLayout>
 
         <TextView
+            android:id="@+id/msgCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/msgCost"
-            android:padding="15dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:text="1,99€"/>
+            android:layout_marginTop="33dp"
+            android:layout_marginRight="7dp"
+            android:gravity="center"
+            android:padding="15dp"
+            android:paddingTop="1dp"
+            android:text="1,99€"
+            android:textAlignment="center"
+            android:textSize="22sp" />
 
 
     </RelativeLayout>
