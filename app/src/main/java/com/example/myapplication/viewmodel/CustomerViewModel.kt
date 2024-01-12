@@ -6,6 +6,7 @@ import com.example.myapplication.models.Tariff
 import com.example.myapplication.repositories.CustomerRepository
 import com.example.myapplication.repositories.CustomerStudioRepository
 import com.example.myapplication.repositories.TariffRepository
+import com.example.myapplication.services.CustomerService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
@@ -14,6 +15,7 @@ import javax.inject.Inject
 class CustomerViewModel
 @Inject constructor(
     private val customerRepository: CustomerRepository,
+    private val customerService: CustomerService,
     private val studioRepository: CustomerStudioRepository,
     private val tariffRepository: TariffRepository,
 ) : ViewModel() {
@@ -52,5 +54,10 @@ class CustomerViewModel
             }
         }
 
+    }
+    fun getUser(): Customer {
+        customerService.getCustomer().let {
+            return it
+        }
     }
 }

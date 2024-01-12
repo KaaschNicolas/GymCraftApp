@@ -24,8 +24,6 @@ class MySubscriptionsViewModel @Inject constructor(
 
     fun getTariffs(): List<Tariff> {
         return fillTariffs()
-
-
     }
 
     fun getMyTariffs() : List<Tariff> {
