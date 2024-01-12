@@ -39,17 +39,16 @@ class CourseDetailActivity : AppCompatActivity() {
             imageView.id= it.imageId
             courseNameTextView.text = it.name
             descriptionTextView.text = it.description
-            courseMaxParticipantsTextView.text = "Maximale Teilnehmeranzahl: " + it.maxNumberOfEntrants.toString()
-            val formatter = SimpleDateFormat("dd.MM")
+            courseMaxParticipantsTextView.text = "Maximale Teilnehmeranzahl: ${it.maxNumberOfEntrants}"
+            val formatter = SimpleDateFormat("dd.MM.YYYY")
             dateTextView.text = formatter.format(it.date)
             viewModel?.let{
-                val leftPlaces = (course.maxNumberOfEntrants - it.countParticipants(course.id)).toString()
-                currentParticipantsTextView.text= "Nur noch "+ leftPlaces + " Plätze frei!"
+                currentParticipantsTextView.text= "Nur noch ${course.maxNumberOfEntrants - it.countParticipants(course.id)} Plätze frei!"
 
             }
         }
         Log.i("checkMappingExists", viewModel?.checkMappingExists(course?.id).toString())
-        if (viewModel?.checkMappingExists(course?.id) !== null){
+        if (viewModel?.checkMappingExists(course?.id) != null){
             subscriptionButton.text = "Abmelden"
         } else {
             subscriptionButton.text = "Anmelden"
