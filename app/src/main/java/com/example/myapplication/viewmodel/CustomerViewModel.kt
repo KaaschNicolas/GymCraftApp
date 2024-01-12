@@ -9,6 +9,8 @@ import com.example.myapplication.repositories.TariffRepository
 import com.example.myapplication.services.CustomerService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
+import java.text.SimpleDateFormat
+import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel
@@ -59,5 +61,10 @@ class CustomerViewModel
         customerService.getCustomer().let {
             return it
         }
+    }
+    fun dateToReadableDate(date: Date?): String? {
+        val dateFormat = SimpleDateFormat("DD-MM-YYYY")
+
+        return date?.let { dateFormat.format(it) }
     }
 }

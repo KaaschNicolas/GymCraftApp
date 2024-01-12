@@ -21,7 +21,6 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private var viewModel: CustomerViewModel? = null
 
 
     override fun onCreateView(
@@ -29,23 +28,17 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CustomerViewModel::class.java)
-        val customer: Customer? = viewModel?.getUser()
-
-        Log.i("User", "${customer?.firstName}")
 
         binding.mitgliedschaftButton.setOnClickListener{
             val intent = Intent(requireContext(), MembershipActivity::class.java)
             startActivity(intent)
         }
-        //binding.memberSince.text = "Mitglied seit: " +getCurrentCustomer()
     }
 
     override fun onDestroyView() {
