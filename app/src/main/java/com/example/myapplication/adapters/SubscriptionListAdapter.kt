@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
+import com.example.myapplication.models.Customer
 import com.example.myapplication.models.Tariff
+import com.example.myapplication.viewmodels.CustomerViewModel
 
 class SubscriptionListAdapter(
     private val context: Context, //maybe so
-    private val arrayList: ArrayList<Tariff>
+    private val arrayList: ArrayList<Tariff>,
 ) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -20,23 +23,22 @@ class SubscriptionListAdapter(
 
         //val imageView: ImageView = view.findViewById(R.id.image)
         val name: TextView = view.findViewById(R.id.subscriptionName)
-        val message: TextView = view.findViewById(R.id.message)
-
-        /**
-        val formatter = SimpleDateFormat("dd.MM")
-        val date = arrayList[position].date
-        val current = formatter.format(date)
-         */
+        val bookStatus: TextView = view.findViewById(R.id.bookStatus)
 
         val msgCost: TextView = view.findViewById(R.id.msgCost)
 
         //imageView.setImageResource(arrayList[position].imageId)
 
         name.text = arrayList[position].description
-        //message.text no need for message
         msgCost.text = arrayList[position].price.toString()
 
-        //TODO: id to name and adding pictures maybe??
+        //TODO: make this dependent on who is logged in not "1", dunno how to inject the user that is logged in here
+        if (arrayList[position].customerId == 1) {
+            bookStatus.text = "Erworben"
+        } else {
+            bookStatus.text = "Kostenpflichtig Erwerben"
+        }
+
         return view
     }
 

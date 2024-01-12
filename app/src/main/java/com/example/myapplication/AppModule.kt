@@ -170,52 +170,52 @@ object AppModule {
 
                     val tariff1 = Tariff(
                         id = 1,
-                        price = 0.99f,
+                        price = 29.99f,
                         duration = date,
-                        description = "Wasser Flatrate",
+                        description = "Basistariff",
                         customerId = 1,
                     )
                     val tariff2 = Tariff(
                         id = 2,
-                        price = 3.98f,
+                        price = 31.98f,
                         duration = date,
                         description = "Ernährungsberatung",
                         customerId = 2,
                     )
                     val tariff3 = Tariff(
                         id = 3,
-                        price = 3.78f,
+                        price = 33.78f,
                         duration = date,
-                        description = "Gruppenkurse Plus",
-                        customerId = 1,
+                        description = "BasisTariff+",
+                        customerId = 3,
                     )
                     val tariff4 = Tariff(
                         id = 4,
-                        price = 10.98f,
+                        price = 36.98f,
                         duration = date,
-                        description = "Monatliche Massage",
+                        description = "Tariff+ Massage",
                         customerId = 4,
                     )
                     val tariff5 = Tariff(
                         id = 5,
-                        price = 1.99f,
+                        price = 100.99f,
                         duration = date,
-                        description = "Premium Getränkeservice",
-                        customerId = 3,
+                        description = "Permium Tariff",
+                        customerId = 5,
                     )
                     val tariff6 = Tariff(
                         id = 6,
-                        price = 1.98f,
+                        price = 46.98f,
                         duration = date,
-                        description = "Proteinregel Flatrate",
-                        customerId = 2,
+                        description = "Tariff+ Personal",
+                        customerId = 6,
                     )
                     val tariff7 = Tariff(
                         id = 7,
-                        price = 15.99f,
+                        price = 33.99f,
                         duration = date,
-                        description = "Personal Trainer Sitzung",
-                        customerId = 1,
+                        description = "Tariff Sauna",
+                        customerId = 7,
                     )
                     val tariffDao = it.getTariffDao()
                     val tariffList: List<Tariff> = arrayListOf(tariff1, tariff2, tariff3, tariff4, tariff5, tariff6, tariff7)

@@ -17,4 +17,5 @@ class TariffRepository
     fun getOneById(id: Int) = tariffDao.getOneById(id)
 
     fun getOneByCustomerId(id: Int) = tariffDao.getOneByCustomerId(id)
+
 }

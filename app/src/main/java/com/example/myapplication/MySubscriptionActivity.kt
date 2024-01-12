@@ -28,7 +28,6 @@ class MySubscriptionActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MySubscriptionsViewModel::class.java]
         var tariffs = viewModel.getTariffs()
 
-
         Log.i("TariffListFragment", "${tariffs?.count()}")
         //Loading listview and adapter onCreate
         listView = findViewById(R.id.subscriptionLv)
