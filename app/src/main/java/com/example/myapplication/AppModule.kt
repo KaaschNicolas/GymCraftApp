@@ -10,6 +10,9 @@ import com.example.myapplication.daos.StudioDao
 import com.example.myapplication.models.Address
 import com.example.myapplication.models.Course
 import com.example.myapplication.models.Studio
+import com.example.myapplication.models.Customer
+import com.example.myapplication.services.CustomerService
+import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -108,6 +111,34 @@ object AppModule {
                         maxNumberOfEntrants =  13,
                         imageId = 3,
                     )
+
+                    val customerDao =  it.getCustomerDao()
+
+                    val customer = Customer(
+                        id = 1,
+                        lastName = "Kaasch",
+                        firstName = "Nicolas",
+                        /*Address(
+                            id = 1,
+                            city = "Karlsruhe",
+                            street = "Zähringerstraße",
+                            district = "Oststadt",
+                            houseNumber = "5",
+                            houseNumberAddition = "d",
+                            postalCode = 76131,
+                            mailbox = "testbox",
+                        ),  */
+                        username ="knicolas",
+                        password = "Test1234",
+                        email = "nicolas.kaasch@test.de",
+                        birthday = date,
+                        height = 1.85f,
+                        weight = 80f,
+                        memberSince = date,
+                        memberNumber = UUID.randomUUID()
+                    )
+
+                    customerDao.save(customer)
 
                     val courseList: List<Course> = arrayListOf(course1, course2, course3, course4, course5, course6, course7)
                     courseList.forEach { courseDao.save(it) }
@@ -242,6 +273,10 @@ object AppModule {
         })
         .build()
      */
+
+    @Singleton
+    @Provides
+    fun provideCustomerSerivce(): CustomerService = CustomerService()
 
     @Singleton
     @Provides

@@ -8,22 +8,12 @@ import java.util.Date
 import java.util.UUID
 
 
-@Entity(
-    foreignKeys = [
-        ForeignKey(
-            entity = Tariff::class,
-            parentColumns = ["id"],
-            childColumns = ["id"]
-        ),
-    ]
-)
+@Entity
 data class Customer(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     var lastName: String,
     var firstName: String,
-    @Embedded("address_")
-    var address: Address,
     var username: String,
     var password: String,
     var email: String,
