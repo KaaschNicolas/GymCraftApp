@@ -112,22 +112,15 @@ object AppModule {
                         imageId = 3,
                     )
 
-                    val customerDao =  it.getCustomerDao()
+                    val courseList: List<Course> = arrayListOf(course1, course2, course3, course4, course5, course6, course7)
+                    courseList.forEach { courseDao.save(it) }
 
-                    val customer = Customer(
+                    val customerDao = it.getCustomerDao()
+
+                    val customer1 = Customer(
                         id = 1,
                         lastName = "Kaasch",
                         firstName = "Nicolas",
-                        /*Address(
-                            id = 1,
-                            city = "Karlsruhe",
-                            street = "Zähringerstraße",
-                            district = "Oststadt",
-                            houseNumber = "5",
-                            houseNumberAddition = "d",
-                            postalCode = 76131,
-                            mailbox = "testbox",
-                        ),  */
                         username ="knicolas",
                         password = "Test1234",
                         email = "nicolas.kaasch@test.de",
@@ -137,6 +130,22 @@ object AppModule {
                         memberSince = date,
                         memberNumber = UUID.randomUUID()
                     )
+
+                    val customer2 = Customer(
+                        id = 2,
+                        lastName = "Muskelmann",
+                        firstName = "Moritz",
+                        username ="moritzkhn",
+                        password = "Abc1234",
+                        email = "moritzkhn@test.de",
+                        birthday = date,
+                        height = 1.80f,
+                        weight = 78f,
+                        memberSince = date,
+                        memberNumber = UUID.randomUUID()
+                    )
+                    val customerList: List<Customer> = arrayListOf(customer1, customer2)
+                    customerList.forEach { customerDao.save(it) }
 
                     customerDao.save(customer)
 
@@ -164,6 +173,7 @@ object AppModule {
                         description = "Kommt heute zu uns und trainiert für eure Gains! :)"
                     )
                     studioDao.save(studio1)
+
 
                 }
             }

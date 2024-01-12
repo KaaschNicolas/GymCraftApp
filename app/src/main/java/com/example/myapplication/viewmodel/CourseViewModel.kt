@@ -5,10 +5,12 @@ import com.example.myapplication.models.Course
 import com.example.myapplication.models.CustomerCourseMapping
 import com.example.myapplication.repositories.CourseRepository
 import com.example.myapplication.repositories.CustomerCourseRepository
+import com.example.myapplication.services.CustomerService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 @HiltViewModel
 class CourseViewModel @Inject constructor(
+    private val customerService: CustomerService,
     private val courseRepository: CourseRepository,
     private val customerCourseRepository: CustomerCourseRepository,
 ) : ViewModel() {
@@ -17,14 +19,14 @@ class CourseViewModel @Inject constructor(
         return courseRepository.getOneById(id)
     }
 
-    fun checkMappingExists(customerId: Int, courseId: Int?): CustomerCourseMapping? {
-        val course = courseId
-        val res = customerCourseRepository.checkMappingExists(customerId, courseId)
-        return res
+    fun checkMappingExists(courseId: Int?): CustomerCourseMapping? {
+        val customer = customerService.getCustomer()
+        return customerCourseRepository.checkMappingExists(customer.id, courseId)
     }
 
-    fun subscribeunsubscribe(customerId: Int, courseId: Int?): Boolean {
-        val res = checkMappingExists(customerId, courseId)
+    fun subscribeunsubscribe( courseId: Int?): Boolean {
+        val customer = customerService.getCustomer()
+        val res = checkMappingExists(courseId)
         if (res !== null) {
             customerCourseRepository.delete(res)
             return true
@@ -33,11 +35,13 @@ class CourseViewModel @Inject constructor(
             {
                 customerCourseRepository.save(CustomerCourseMapping(
                     courseId = it,
-                    customerId = customerId,
+                    customerId = customer.id,
                 ))
             }
             return false
         }
-
+    }
+    fun countParticipants(courseId: Int = 1): Int {
+        return customerCourseRepository.getMappingsByCourseId(courseId).size
     }
 }

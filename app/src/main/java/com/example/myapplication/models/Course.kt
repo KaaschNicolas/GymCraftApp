@@ -7,7 +7,7 @@ import java.util.Date
 @Entity
 data class Course(
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
+    val id: Int = 0,
     var name: String,
     var description: String,
     var date: Date,

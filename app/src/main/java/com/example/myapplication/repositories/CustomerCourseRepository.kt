@@ -16,7 +16,7 @@ class CustomerCourseRepository
 
     fun getAll() = customerCourseMappingDao.getAll()
 
-    fun getMappingsByCourseId(id: Int) = customerCourseMappingDao.getMappingsByCourseId(id)
+    fun getMappingsByCourseId(id: Int = 1) = customerCourseMappingDao.getMappingsByCourseId(id)
 
     fun getMappingsByCustomerId(id: Int) = customerCourseMappingDao.getMappingsByCustomerId(id)
 
