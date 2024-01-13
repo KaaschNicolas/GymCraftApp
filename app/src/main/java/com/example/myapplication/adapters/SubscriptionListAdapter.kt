@@ -13,8 +13,10 @@ import com.example.myapplication.models.Tariff
 import com.example.myapplication.viewmodels.CustomerViewModel
 
 class SubscriptionListAdapter(
-    private val context: Context, //maybe so
+    //get context from the activity
+    private val context: Context,
     private val arrayList: ArrayList<Tariff>,
+    private val currentUser: Int
 ) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -33,7 +35,7 @@ class SubscriptionListAdapter(
         msgCost.text = arrayList[position].price.toString()
 
         //TODO: make this dependent on who is logged in not "1", dunno how to inject the user that is logged in here
-        if (arrayList[position].customerId == 1) {
+        if (arrayList[position].customerId == currentUser) {
             bookStatus.text = "Erworben"
         } else {
             bookStatus.text = "Kostenpflichtig Erwerben"
