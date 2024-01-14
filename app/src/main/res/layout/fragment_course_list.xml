@@ -1,21 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".CourseListFragment">
 
-    <TextView
-        android:id="@+id/app_name_text"
-        android:text="@string/app_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <SearchView
+            android:id="@+id/courseListSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Kurs Name"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFirstRow"
+        android:layout_below="@id/linearLayoutSearch"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Alle"
+            android:id="@+id/allCourses"
+            android:background="@color/colorPrimary"
+            android:onClick="allCoursesFilterTapped"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Angemeldet"
+            android:id="@+id/subscribed"
+            android:background="@color/colorPrimary"
+            android:onClick="subscribedFilterTapped"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Kraftsport"
+            android:id="@+id/strengthTraining"
+            android:background="@color/colorPrimary"
+            android:onClick="strengthTrainingFilterTapped"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSecondRow"
+        android:layout_below="@id/linearLayoutFirstRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Cardio"
+            android:id="@+id/cardio"
+            android:background="@color/colorPrimary"
+            android:onClick="cardioFilterTapped"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Stretching"
+            android:id="@+id/stretching"
+            android:background="@color/colorPrimary"
+            android:onClick="StretchingFilterTapped"/>
+    </LinearLayout>
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/courseLv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linearLayoutSecondRow"
         tools:listitem="@layout/course_list_item"/>
 
 </RelativeLayout>

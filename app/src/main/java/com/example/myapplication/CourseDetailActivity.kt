@@ -31,39 +31,45 @@ class CourseDetailActivity : AppCompatActivity() {
         val courseNameTextView = findViewById<TextView>(R.id.courseName)
         val descriptionTextView = findViewById<TextView>(R.id.description)
         val courseMaxParticipantsTextView = findViewById<TextView>(R.id.courseMaxParticipants)
+        val currentParticipantsTextView = findViewById<TextView>(R.id.currentParticipants)
         val dateTextView = findViewById<TextView>(R.id.date)
         val subscriptionButton = findViewById<Button>(R.id.subscriptionButton)
 
-
         course?.let {
-            imageView.id= course.imageId
-            courseNameTextView.text = course.name
-            descriptionTextView.text = course.description
-            courseMaxParticipantsTextView.text = course.maxNumberOfEntrants.toString()
-            val formatter = SimpleDateFormat("dd.MM")
-            dateTextView.text = formatter.format(course.date)
+            imageView.id= it.imageId
+            courseNameTextView.text = it.name
+            descriptionTextView.text = it.description
+            courseMaxParticipantsTextView.text = "Maximale Teilnehmeranzahl: ${it.maxNumberOfEntrants}"
+            val formatter = SimpleDateFormat("dd.MM.YYYY")
+            dateTextView.text = formatter.format(it.date)
+            viewModel?.let{
+                currentParticipantsTextView.text= "Nur noch ${course.maxNumberOfEntrants - it.countParticipants(course.id)} Plätze frei!"
+
+            }
         }
-        Log.i("checkMappingExists", viewModel?.checkMappingExists(1, course?.id).toString())
-        if (viewModel?.checkMappingExists(1, course?.id) !== null){
+        Log.i("checkMappingExists", viewModel?.checkMappingExists(course?.id).toString())
+        if (viewModel?.checkMappingExists(course?.id) != null){
             subscriptionButton.text = "Abmelden"
         } else {
             subscriptionButton.text = "Anmelden"
         }
          subscriptionButton.setOnClickListener {
-             val check = viewModel?.subscribeunsubscribe(1, course?.id)
+             val check = viewModel?.subscribeunsubscribe(course?.id)
              if (check == true){
-                 val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich angemeldet", Toast.LENGTH_SHORT)
+                 val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich abgemeldet", Toast.LENGTH_SHORT)
                  myToast.show() // Show the toast
                 // Set a timer to cancel the toast after 5 seconds (5000ms)
                  Handler(Looper.getMainLooper()).postDelayed({
                      myToast.cancel() // This will dismiss the toast
                  }, 5000)
+                 subscriptionButton.text = "Anmelden"
              } else {
-                 val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich abgemeldet", Toast.LENGTH_SHORT)
+                 val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich angemeldet", Toast.LENGTH_SHORT)
                  myToast.show()
                  Handler(Looper.getMainLooper()).postDelayed({
                      myToast.cancel()
                  }, 5000)
+                 subscriptionButton.text = "Abmelden"
              }
 
          }

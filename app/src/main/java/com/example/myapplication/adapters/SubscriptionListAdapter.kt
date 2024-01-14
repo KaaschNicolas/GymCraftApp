@@ -1,52 +1,46 @@
 package com.example.myapplication.adapters
 
-import android.app.Activity
-import android.content.Context
-import android.graphics.BitmapFactory
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import com.example.myapplication.R
 import com.example.myapplication.models.Course
+import com.example.myapplication.models.Tariff
 import java.text.SimpleDateFormat
-import java.util.Date
 
-class CourseListAdapter(
+class SubscriptionListAdapter(
     private val context: FragmentActivity,
-    private val arrayList: ArrayList<Course>
+    private val arrayList: ArrayList<Tariff>
 ) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater: LayoutInflater = LayoutInflater.from(context)
-        val view: View = inflater.inflate(R.layout.course_list_item, null)
+        val view: View = inflater.inflate(R.layout.subscription_list_item, null)
 
-        val imageView: ImageView = view.findViewById(R.id.image)
-        val name: TextView = view.findViewById(R.id.courseName)
+        //val imageView: ImageView = view.findViewById(R.id.image)
+        val name: TextView = view.findViewById(R.id.subscriptionName)
         val message: TextView = view.findViewById(R.id.message)
 
-        val formatter = SimpleDateFormat("dd.MM.YYYY")
+        /**
+        val formatter = SimpleDateFormat("dd.MM")
         val date = arrayList[position].date
         val current = formatter.format(date)
+         */
 
-        val msgTime: TextView = view.findViewById(R.id.msgTime)
+        val msgCost: TextView = view.findViewById(R.id.msgCost)
 
+        //imageView.setImageResource(arrayList[position].imageId)
 
-        //val file = context.openFileInput(arrayList[position].imageId)
-        //file.read()
-
-        //val bitMap = BitmapFactory.decodeFile(arrayList[position].imageId)
-
-        imageView.setImageResource(arrayList[position].imageId)
-        name.text = arrayList[position].name
+        //change id to names somewhere in the code
+        name.text = arrayList[position].id.toString()
         message.text = arrayList[position].description
-        msgTime.text = current
+        msgCost.text = arrayList[position].price.toString()
 
+        //TODO: id to name and adding pictures maybe??
         return view
     }
 

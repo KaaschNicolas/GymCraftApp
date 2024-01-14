@@ -15,4 +15,6 @@ data class Studio(
     var address: Address,
     var foundingDate: Date,
     var owner: String,
+    var openingHours: String,
+    var description: String,
 )
