@@ -147,10 +147,8 @@ object AppModule {
                     val customerList: List<Customer> = arrayListOf(customer1, customer2)
                     customerList.forEach { customerDao.save(it) }
 
-                    customerDao.save(customer)
-
-                    val courseList: List<Course> = arrayListOf(course1, course2, course3, course4, course5, course6, course7)
-                    courseList.forEach { courseDao.save(it) }
+                    customerDao.save(customer1)
+                    customerDao.save(customer2)
 
                     val studioDao = it.getStudioDao()
                     val studio1 = Studio(
