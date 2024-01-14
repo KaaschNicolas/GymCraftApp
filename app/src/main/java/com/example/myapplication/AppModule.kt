@@ -53,14 +53,14 @@ object AppModule {
 
                     val course1 = Course(
                         id = 1,
-                        name = "Spinning",new
+                        name = "Spinning",
                         description = "Join our fun spinning classes at the gym! Pedal to the beat, burn calories, and boost your fitness in a lively group atmosphere.",
                         date,
                         maxNumberOfEntrants = 20,
                         imageId = drawable1,
                     )
 
-                    val drawable2 = R.drawable
+                    val drawable2 = R.drawable.yoga
 
                     val course2 = Course(
                         id = 2,
@@ -68,8 +68,10 @@ object AppModule {
                         description = "Unwind and rejuvenate in our Relax & Stretch Yoga class. Perfect for beginners and seasoned yogis alike, this session focuses on gentle stretches, deep breathing, and fostering a sense of calm for a balanced mind and body.",
                         date,
                         maxNumberOfEntrants = 12,
-                        imageId = drawable,
+                        imageId = drawable2,
                     )
+
+                    val drawable3 = R.drawable.zumba
 
                     val course3 = Course(
                         id = 3,
@@ -77,8 +79,10 @@ object AppModule {
                         description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = drawable,
+                        imageId = drawable3,
                     )
+
+                    val drawable4 = R.drawable.cardio_boxing
 
                     val course4 = Course(
                         id = 4,
@@ -86,8 +90,10 @@ object AppModule {
                         description = "Unleash your inner warrior in Cardio Kickboxing! Channel your stress into powerful punches and kicks while getting an intense cardio workout. Don't be surprised if you leave feeling like a superhero.",
                         date,
                         maxNumberOfEntrants =  15,
-                        imageId = drawable,
+                        imageId = drawable4,
                     )
+
+
 
                     val course5 = Course(
                         id = 5,
@@ -95,8 +101,10 @@ object AppModule {
                         description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = drawable,
+                        imageId = drawable3,
                     )
+
+                    val drawable5 = R.drawable.stretchurelax
 
                     val course6 = Course(
                         id = 6,
@@ -104,8 +112,10 @@ object AppModule {
                         description = "Ease tension and enhance flexibility in Stretch & Relax. This class is all about gentle stretches and relaxation techniques to help you unwind and leave feeling refreshed.",
                         date,
                         maxNumberOfEntrants =  10,
-                        imageId = drawable,
+                        imageId = drawable5,
                     )
+
+                    val drawable6 = R.drawable.bodyweight
 
                     val course7 = Course(
                         id = 3,
@@ -113,7 +123,7 @@ object AppModule {
                         description = "No fancy equipment needed! Join Bodyweight Basics to learn effective exercises using just your own body weight. It's a simple yet powerful way to build strength and endurance.",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = drawable,
+                        imageId = drawable6,
                     )
 
                     val customerDao =  it.getCustomerDao()
@@ -158,7 +168,6 @@ object AppModule {
     @Provides
     fun provideGymCraftDatabase(
         @ApplicationContext app: Context,
-        courseDaoProvider: Provider<CourseDao>,
     ): GymCraftDatabase {
         return INSTANCE ?: synchronized(this) {
             val scope = CoroutineScope(Dispatchers.IO)
