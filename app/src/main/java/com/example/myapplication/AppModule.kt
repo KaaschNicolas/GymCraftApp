@@ -48,14 +48,18 @@ object AppModule {
 
                     val date = Date()
 
+                    val drawable1 = R.drawable.course_sample
+
                     val course1 = Course(
                         id = 1,
                         name = "Spinning",
                         description = "Join our fun spinning classes at the gym! Pedal to the beat, burn calories, and boost your fitness in a lively group atmosphere.",
                         date,
                         maxNumberOfEntrants = 20,
-                        imageId = 1,
+                        imageId = drawable1,
                     )
+
+                    val drawable2 = R.drawable.yoga
 
                     val course2 = Course(
                         id = 2,
@@ -63,8 +67,10 @@ object AppModule {
                         description = "Unwind and rejuvenate in our Relax & Stretch Yoga class. Perfect for beginners and seasoned yogis alike, this session focuses on gentle stretches, deep breathing, and fostering a sense of calm for a balanced mind and body.",
                         date,
                         maxNumberOfEntrants = 12,
-                        imageId = 2,
+                        imageId = drawable2,
                     )
+
+                    val drawable3 = R.drawable.zumba
 
                     val course3 = Course(
                         id = 3,
@@ -72,8 +78,10 @@ object AppModule {
                         description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = 3,
+                        imageId = drawable3,
                     )
+
+                    val drawable4 = R.drawable.cardio_boxing
 
                     val course4 = Course(
                         id = 4,
@@ -81,8 +89,10 @@ object AppModule {
                         description = "Unleash your inner warrior in Cardio Kickboxing! Channel your stress into powerful punches and kicks while getting an intense cardio workout. Don't be surprised if you leave feeling like a superhero.",
                         date,
                         maxNumberOfEntrants =  15,
-                        imageId = 3,
+                        imageId = drawable4,
                     )
+
+
 
                     val course5 = Course(
                         id = 5,
@@ -90,8 +100,10 @@ object AppModule {
                         description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = 3,
+                        imageId = drawable3,
                     )
+
+                    val drawable5 = R.drawable.stretchurelax
 
                     val course6 = Course(
                         id = 6,
@@ -99,8 +111,10 @@ object AppModule {
                         description = "Ease tension and enhance flexibility in Stretch & Relax. This class is all about gentle stretches and relaxation techniques to help you unwind and leave feeling refreshed.",
                         date,
                         maxNumberOfEntrants =  10,
-                        imageId = 3,
+                        imageId = drawable5,
                     )
+
+                    val drawable6 = R.drawable.bodyweight
 
                     val course7 = Course(
                         id = 3,
@@ -108,7 +122,7 @@ object AppModule {
                         description = "No fancy equipment needed! Join Bodyweight Basics to learn effective exercises using just your own body weight. It's a simple yet powerful way to build strength and endurance.",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = 3,
+                        imageId = drawable6,
                     )
 
                     val courseList: List<Course> = arrayListOf(course1, course2, course3, course4, course5, course6, course7)
@@ -184,8 +198,6 @@ object AppModule {
     @Provides
     fun provideGymCraftDatabase(
         @ApplicationContext app: Context,
-        courseDaoProvider: Provider<CourseDao>,
-        studioDaoProvider: Provider<StudioDao>,
     ): GymCraftDatabase {
         return INSTANCE ?: synchronized(this) {
             val scope = CoroutineScope(Dispatchers.IO)
@@ -201,85 +213,6 @@ object AppModule {
             instance
         }
     }
-
-
-
-
-
-    /* = Room.databaseBuilder(
-        app,
-        GymCraftDatabase::class.java,
-        "GymDB"
-    )
-        .allowMainThreadQueries()
-        .addCallback(object: RoomDatabase.Callback() {
-            override fun onOpen(db: SupportSQLiteDatabase) {
-                super.onOpen(db)
-
-                Log.i("Database Init", "OnCreate")
-                val courseDao = courseDaoProvider.get()
-                //val courses = courseDao.getAll()
-                //courses.forEach { courseDao.delete(it)}
-
-                val date = Date()
-
-                val course1 = Course(
-                    name = "Test1",
-                    description = "Description1",
-                    date = date,
-                    maxNumberOfEntrants = 11,
-                    imageId = 1,
-                )
-
-                val course2 = Course(
-
-                    name = "Test2",
-                    description = "Description2",
-                    date = date,
-                    maxNumberOfEntrants = 12,
-                    imageId = 2,
-                )
-
-                val course3 = Course(
-
-                    name = "Test3",
-                    description = "Description3",
-                    date = date,
-                    maxNumberOfEntrants =  13,
-                    imageId = 3,
-                )
-
-                val courseList: List<Course> = arrayListOf(course1, course2, course3)
-                courseList.forEach { courseDao.save(it) }
-
-
-                /*val customer = Customer(
-                    id = 1,
-                    lastName = "Kaasch",
-                    firstName = "Nicolas",
-                     Address(
-                        id = 1,
-                        city = "Karlsruhe",
-                        street = "Zähringerstraße",
-                        district = "Oststadt",
-                        houseNumber = "5",
-                        houseNumberAddition = "d",
-                        postalCode = 76131,
-                        mailbox = "testbox",
-                    ),
-                    username ="knicolas",
-                    password = "Test1234",
-                    email = "nicolas.kaasch@test.de",
-                    birthday = date,
-                    height = 1.85f,
-                    weight = 80f,
-                    memberSince = date,
-                    memberNumber = UUID.randomUUID()
-                ) */
-            }
-        })
-        .build()
-     */
 
     @Singleton
     @Provides
