@@ -49,14 +49,18 @@ object AppModule {
 
                     val date = Date()
 
+                    val drawable1 = R.drawable.course_sample
+
                     val course1 = Course(
                         id = 1,
-                        name = "Spinning",
+                        name = "Spinning",new
                         description = "Join our fun spinning classes at the gym! Pedal to the beat, burn calories, and boost your fitness in a lively group atmosphere.",
                         date,
                         maxNumberOfEntrants = 20,
-                        imageId = 1,
+                        imageId = drawable1,
                     )
+
+                    val drawable2 = R.drawable
 
                     val course2 = Course(
                         id = 2,
@@ -64,7 +68,7 @@ object AppModule {
                         description = "Unwind and rejuvenate in our Relax & Stretch Yoga class. Perfect for beginners and seasoned yogis alike, this session focuses on gentle stretches, deep breathing, and fostering a sense of calm for a balanced mind and body.",
                         date,
                         maxNumberOfEntrants = 12,
-                        imageId = 2,
+                        imageId = drawable,
                     )
 
                     val course3 = Course(
@@ -73,7 +77,7 @@ object AppModule {
                         description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = 3,
+                        imageId = drawable,
                     )
 
                     val course4 = Course(
@@ -82,7 +86,7 @@ object AppModule {
                         description = "Unleash your inner warrior in Cardio Kickboxing! Channel your stress into powerful punches and kicks while getting an intense cardio workout. Don't be surprised if you leave feeling like a superhero.",
                         date,
                         maxNumberOfEntrants =  15,
-                        imageId = 3,
+                        imageId = drawable,
                     )
 
                     val course5 = Course(
@@ -91,7 +95,7 @@ object AppModule {
                         description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = 3,
+                        imageId = drawable,
                     )
 
                     val course6 = Course(
@@ -100,7 +104,7 @@ object AppModule {
                         description = "Ease tension and enhance flexibility in Stretch & Relax. This class is all about gentle stretches and relaxation techniques to help you unwind and leave feeling refreshed.",
                         date,
                         maxNumberOfEntrants =  10,
-                        imageId = 3,
+                        imageId = drawable,
                     )
 
                     val course7 = Course(
@@ -109,7 +113,7 @@ object AppModule {
                         description = "No fancy equipment needed! Join Bodyweight Basics to learn effective exercises using just your own body weight. It's a simple yet powerful way to build strength and endurance.",
                         date,
                         maxNumberOfEntrants =  13,
-                        imageId = 3,
+                        imageId = drawable,
                     )
 
                     val customerDao =  it.getCustomerDao()
@@ -170,83 +174,6 @@ object AppModule {
             instance
         }
     }
-
-
-
-    /* = Room.databaseBuilder(
-        app,
-        GymCraftDatabase::class.java,
-        "GymDB"
-    )
-        .allowMainThreadQueries()
-        .addCallback(object: RoomDatabase.Callback() {
-            override fun onOpen(db: SupportSQLiteDatabase) {
-                super.onOpen(db)
-
-                Log.i("Database Init", "OnCreate")
-                val courseDao = courseDaoProvider.get()
-                //val courses = courseDao.getAll()
-                //courses.forEach { courseDao.delete(it)}
-
-                val date = Date()
-
-                val course1 = Course(
-                    name = "Test1",
-                    description = "Description1",
-                    date = date,
-                    maxNumberOfEntrants = 11,
-                    imageId = 1,
-                )
-
-                val course2 = Course(
-
-                    name = "Test2",
-                    description = "Description2",
-                    date = date,
-                    maxNumberOfEntrants = 12,
-                    imageId = 2,
-                )
-
-                val course3 = Course(
-
-                    name = "Test3",
-                    description = "Description3",
-                    date = date,
-                    maxNumberOfEntrants =  13,
-                    imageId = 3,
-                )
-
-                val courseList: List<Course> = arrayListOf(course1, course2, course3)
-                courseList.forEach { courseDao.save(it) }
-
-
-                /*val customer = Customer(
-                    id = 1,
-                    lastName = "Kaasch",
-                    firstName = "Nicolas",
-                     Address(
-                        id = 1,
-                        city = "Karlsruhe",
-                        street = "Zähringerstraße",
-                        district = "Oststadt",
-                        houseNumber = "5",
-                        houseNumberAddition = "d",
-                        postalCode = 76131,
-                        mailbox = "testbox",
-                    ),
-                    username ="knicolas",
-                    password = "Test1234",
-                    email = "nicolas.kaasch@test.de",
-                    birthday = date,
-                    height = 1.85f,
-                    weight = 80f,
-                    memberSince = date,
-                    memberNumber = UUID.randomUUID()
-                ) */
-            }
-        })
-        .build()
-     */
 
     @Singleton
     @Provides
