@@ -279,4 +279,12 @@ object AppModule {
     @Singleton
     @Provides
     fun provideCustomerStudioMappingDao(db: GymCraftDatabase) = db.getCustomerStudioMappingDao()
+
+    @Singleton
+    @Provides
+    fun provideTagDao(db: GymCraftDatabase) = db.getTagDao()
+
+    @Singleton
+    @Provides
+    fun provideCourseTagDao(db: GymCraftDatabase) = db.getCourseTagMappingDao()
 }
