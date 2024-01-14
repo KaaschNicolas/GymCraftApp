@@ -1,74 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:contentDescription="Capacity"
-        android:src="@drawable/capacity" />
+    <LinearLayout
+        android:id="@+id/firstBox"
+        android:layout_width="125dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="152dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/auslastung"
+            android:layout_width="125dp"
+            android:layout_height="106dp"
+            android:text="Auslastung"
+            android:textColor="@android:color/black"
+            android:textSize="25sp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/topBox"
-        android:layout_width="266dp"
+        android:layout_width="0dp"
         android:layout_height="121dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Füge hier die Inhalte für die Besucherauslastung hinzu -->
-        <!-- Beispiel: -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Durchschnittliche Besucherauslastung"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/Capacity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_box"
+            android:contentDescription="Capacity"
+            android:src="@drawable/meancapacity" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/middleBox"
-        android:layout_width="380dp"
+        android:layout_width="383dp"
         android:layout_height="196dp"
-        android:layout_below="@id/topBox"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="168dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBox">
 
-        <!-- Füge hier die Informationen zum Studio hinzu -->
-        <!-- Beispiel: -->
         <TextView
+            android:id="@+id/studioName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Studio XYZ\nÖffnungszeiten: Mo-Fr 8-22 Uhr\nSa-So 10-18 Uhr"
+            android:text="Studio Name"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/openingHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opening Hours"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottomLeftBox"
-        android:layout_width="180dp"
-        android:layout_height="173dp"
-        android:layout_below="@id/middleBox"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="181dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:padding="30dp"
+        app:layout_constraintEnd_toStartOf="@id/bottomRightBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/middleBox">
 
-        <!-- Füge hier den Text für Geräte hinzu -->
-        <!-- Beispiel: -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,20 +111,16 @@
 
     <LinearLayout
         android:id="@+id/bottomRightBox"
-        android:layout_width="194dp"
-        android:layout_height="173dp"
-        android:layout_below="@+id/middleBox"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@+id/bottomLeftBox"
-        android:layout_weight="1"
+        android:layout_width="174dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:padding="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bottomLeftBox"
+        app:layout_constraintTop_toBottomOf="@id/middleBox">
 
-        <!-- Füge hier den Text für Trainingsplan hinzu -->
-        <!-- Beispiel: -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,5 +129,4 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
