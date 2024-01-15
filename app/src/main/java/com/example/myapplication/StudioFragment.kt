@@ -45,23 +45,17 @@ class StudioFragment(
             auslastungTextView.text = auslastungText
 
             when {
-                randomAuslastung >= 0 && randomAuslastung <= 100 -> {
-
-                    auslastungTextView.setBackgroundColor(Color.GREEN)
+                randomAuslastung in 0..100 -> {
+                    auslastungTextView.setBackgroundResource(R.drawable.oval_shape_green)
                 }
-
-                randomAuslastung > 100 && randomAuslastung <= 200 -> {
-
-                    auslastungTextView.setBackgroundColor(Color.YELLOW)
+                randomAuslastung in 101..200 -> {
+                    auslastungTextView.setBackgroundResource(R.drawable.oval_shape_yellow)
                 }
-
-                randomAuslastung > 200 && randomAuslastung <= 300 -> {
-
-                    auslastungTextView.setBackgroundColor(Color.RED)
+                randomAuslastung in 201..300 -> {
+                    auslastungTextView.setBackgroundResource(R.drawable.oval_shape_red)
                 }
-
                 else -> {
-                    auslastungTextView.setBackgroundColor(Color.TRANSPARENT)
+                    auslastungTextView.setBackgroundResource(R.drawable.round_box)
                 }
             }
             // Erstelle das BarChart
@@ -89,7 +83,7 @@ class StudioFragment(
 
             // Data set wird erstellt
             val dataSet = BarDataSet(entries, "durchschnittliche Auslastung")
-
+            dataSet.color = Color.rgb(74, 112, 139)
             // Konfigurieren der Uhrzeitachse
             val xAxis = barChart.xAxis
             xAxis.valueFormatter = object : ValueFormatter() {
@@ -114,6 +108,7 @@ class StudioFragment(
 
             val data = BarData(dataSet)
             barChart.data = data
+
 
             // Barchart einstellen
             barChart.setFitBars(true)

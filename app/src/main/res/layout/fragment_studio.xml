@@ -4,70 +4,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/firstBox"
-        android:layout_width="125dp"
+    <TextView
+        android:id="@+id/auslastung"
+        android:layout_width="180dp"
         android:layout_height="106dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="152dp"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/auslastung"
-            android:layout_width="125dp"
-            android:layout_height="106dp"
-            android:text="Auslastung"
-            android:textColor="@android:color/black"
-            android:textSize="25sp" />
-
-    </LinearLayout>
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/topBox"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="388dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="132dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
             android:text="Durchschnittliche Auslastung"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:layout_marginTop="1dp"/>
+            android:textSize="14sp" />
+
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_weight="1" />
 
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/middleBox"
-        android:layout_width="383dp"
-        android:layout_height="196dp"
-        android:layout_marginTop="116dp"
+        android:layout_width="386dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/round_box"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topBox">
 
@@ -94,47 +87,37 @@
             android:text="Description"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
+
     </LinearLayout>
 
-    <LinearLayout
+    <Button
         android:id="@+id/bottomLeftBox"
-        android:layout_width="181dp"
-        android:layout_height="131dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/round_box"
-        android:orientation="vertical"
-        android:padding="30dp"
-        app:layout_constraintEnd_toStartOf="@id/bottomRightBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/middleBox">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Geräte"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bottomRightBox"
-        android:layout_width="174dp"
-        android:layout_height="131dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/round_box"
-        android:orientation="vertical"
-        android:padding="30dp"
+        android:layout_width="177dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="32dp"
+        android:text="Geräte"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/bottomLeftBox"
-        app:layout_constraintTop_toBottomOf="@id/middleBox">
+        app:layout_constraintEnd_toStartOf="@id/bottomRightBox"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/middleBox" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Trainingspläne"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/bottomRightBox"
+        android:layout_width="206dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:text="Trainingspläne"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/bottomLeftBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/middleBox" />
+
 
 
 
