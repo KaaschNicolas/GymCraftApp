@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -34,22 +35,26 @@ class CourseDetailActivity : AppCompatActivity() {
         val currentParticipantsTextView = findViewById<TextView>(R.id.currentParticipants)
         val dateTextView = findViewById<TextView>(R.id.date)
         val subscriptionButton = findViewById<Button>(R.id.subscriptionButton)
+        var leftPlaces = 1
 
         course?.let {
             imageView.id= it.imageId
             courseNameTextView.text = it.name
             descriptionTextView.text = it.description
             courseMaxParticipantsTextView.text = "Maximale Teilnehmeranzahl: ${it.maxNumberOfEntrants}"
-            val formatter = SimpleDateFormat("dd.MM.YYYY")
-            dateTextView.text = formatter.format(it.date)
+            val formatter = SimpleDateFormat("dd.MM.YYYY HH:mm")
+            dateTextView.text = "Datum: ${formatter.format(it.date)}"
             viewModel?.let{
-                currentParticipantsTextView.text= "Nur noch ${course.maxNumberOfEntrants - it.countParticipants(course.id)} Plätze frei!"
-
+                leftPlaces = course.maxNumberOfEntrants - it.countParticipants(course.id)
+                currentParticipantsTextView.text= "Anzahl freier Plätze: ${course.maxNumberOfEntrants - it.countParticipants(course.id)}"
             }
         }
         Log.i("checkMappingExists", viewModel?.checkMappingExists(course?.id).toString())
         if (viewModel?.checkMappingExists(course?.id) != null){
+            subscriptionButton.setBackgroundColor(Color.RED)
             subscriptionButton.text = "Abmelden"
+        } else if (leftPlaces == 0){
+            subscriptionButton.isEnabled = false
         } else {
             subscriptionButton.text = "Anmelden"
         }
@@ -62,6 +67,7 @@ class CourseDetailActivity : AppCompatActivity() {
                  Handler(Looper.getMainLooper()).postDelayed({
                      myToast.cancel() // This will dismiss the toast
                  }, 5000)
+                 subscriptionButton.setBackgroundColor(Color.rgb(187, 134, 252))
                  subscriptionButton.text = "Anmelden"
              } else {
                  val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich angemeldet", Toast.LENGTH_SHORT)
@@ -69,9 +75,14 @@ class CourseDetailActivity : AppCompatActivity() {
                  Handler(Looper.getMainLooper()).postDelayed({
                      myToast.cancel()
                  }, 5000)
+                 subscriptionButton.setBackgroundColor(Color.RED)
                  subscriptionButton.text = "Abmelden"
              }
-
+             course?.let{
+                 viewModel?.let {
+                     currentParticipantsTextView.text= "Anzahl freier Plätze: ${course.maxNumberOfEntrants - it.countParticipants(course.id)}"
+                 }
+             }
          }
 
         val callback = this.onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
