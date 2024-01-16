@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
+import androidx.room.Upsert
 import com.example.myapplication.models.CourseTagMapping
 import com.example.myapplication.models.CustomerStudioMapping
 
@@ -13,6 +14,9 @@ import com.example.myapplication.models.CustomerStudioMapping
 interface CourseTagMappingDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(join: CourseTagMapping)
+
+    @Upsert
+    fun save(courseTagMapping: CourseTagMapping)
 
     @Delete
     fun delete(courseTagMapping: CourseTagMapping)

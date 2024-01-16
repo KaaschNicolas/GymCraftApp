@@ -9,8 +9,10 @@ import com.example.myapplication.daos.CourseDao
 import com.example.myapplication.daos.StudioDao
 import com.example.myapplication.models.Address
 import com.example.myapplication.models.Course
+import com.example.myapplication.models.CourseTagMapping
 import com.example.myapplication.models.Studio
 import com.example.myapplication.models.Customer
+import com.example.myapplication.models.Tag
 import com.example.myapplication.services.CustomerService
 import dagger.Lazy
 import dagger.Module
@@ -104,7 +106,7 @@ object AppModule {
                     )
 
                     val course7 = Course(
-                        id = 3,
+                        id = 7,
                         name = "Bodyweight",
                         description = "No fancy equipment needed! Join Bodyweight Basics to learn effective exercises using just your own body weight. It's a simple yet powerful way to build strength and endurance.",
                         date,
@@ -147,11 +149,6 @@ object AppModule {
                     val customerList: List<Customer> = arrayListOf(customer1, customer2)
                     customerList.forEach { customerDao.save(it) }
 
-                    customerDao.save(customer)
-
-                    val courseList: List<Course> = arrayListOf(course1, course2, course3, course4, course5, course6, course7)
-                    courseList.forEach { courseDao.save(it) }
-
                     val studioDao = it.getStudioDao()
                     val studio1 = Studio(
                         id = 1,
@@ -174,7 +171,37 @@ object AppModule {
                     )
                     studioDao.save(studio1)
 
+                    val tagDao = it.getTagDao()
+                    val strengthTrainingTag = Tag(
+                        id = 1,
+                        name = "StrengthTraining"
+                    )
+                    val cardioTag = Tag(
+                        id = 2,
+                        name = "Cardio"
+                    )
+                    val stretchingTag = Tag(
+                        id = 3,
+                        name = "Stretching"
+                    )
+                    val tagList = arrayListOf<Tag>(strengthTrainingTag, cardioTag, stretchingTag)
+                    tagList.forEach{ tagDao.save(it)}
 
+                    val courseTagMappingDao = it.getCourseTagMappingDao()
+                    val mappings = arrayListOf<CourseTagMapping>(
+                        CourseTagMapping(1,1),
+                        CourseTagMapping(1,2),
+                        CourseTagMapping(2, 1),
+                        CourseTagMapping(2, 3),
+                        CourseTagMapping(3, 2),
+                        CourseTagMapping(4,2),
+                        CourseTagMapping(5,2),
+                        CourseTagMapping(6,3),
+                        CourseTagMapping(7,1),
+                        CourseTagMapping(7,2)
+
+                    )
+                    mappings.forEach { courseTagMappingDao.save(it) }
                 }
             }
 

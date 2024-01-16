@@ -26,7 +26,10 @@ class CourseListViewModel @Inject constructor(
     private lateinit var tagCourses: MutableList<Course>
 
     private fun fillMyCourses() {
-        var courseMapping = customerCourseRepository.getMappingsByCustomerId(customerService.getCustomer().id)
+        val mappings = customerCourseRepository.getMappingsByCustomerId(customerService.getCustomer().id)
+        mappings.forEach{
+            myCourses.add(courseRepository.getOneById(it.courseId))
+        }
     }
 
     private fun fillCourses() {
@@ -42,16 +45,21 @@ class CourseListViewModel @Inject constructor(
     }
 
     fun getMyCourses() : List<Course> {
+        myCourses = mutableListOf()
         fillMyCourses()
 
         return myCourses.toList()
     }
 
-    fun getCoursesByTagId(tagId: Int): List<Course> {
+    fun fillCoursesByTagId(tagId: Int){
         courseTagRepository.getMappingsByTagId(tagId).forEach{
-            tagCourses.clear()
             tagCourses.add(courseRepository.getOneById(it.courseId))
         }
-        return tagCourses
+    }
+    fun getCoursesByTagId(tagId: Int): List<Course> {
+        tagCourses = mutableListOf()
+        fillCoursesByTagId(tagId)
+
+        return tagCourses.toList()
     }
 }

@@ -45,7 +45,7 @@ class CourseListFragment(
         val filterStretching = view.findViewById<Button>(R.id.stretching)
 
         var courses = viewModel?.getCourses()
-        var myCourses = viewModel
+        var myCourses = viewModel?.getMyCourses()
 
         Log.i("CourseListFragment", "${courses?.count()}")
 
@@ -69,7 +69,7 @@ class CourseListFragment(
             }
             override fun onQueryTextChange(s: String): Boolean {
                 val searchedCourses: ArrayList<Course> = ArrayList<Course>()
-                viewModel?.getCourses()?.let{
+                courses?.let{
                     for (course in it) {
                         if (course.name.lowercase().contains(s.lowercase(Locale.getDefault()))) {
                             searchedCourses.add(course)
@@ -84,26 +84,34 @@ class CourseListFragment(
             }
         })
         fun showFilteredCourses(tagId: Int){
-            val filteredCourses = viewModel?.getCoursesByTagId(tagId)
-            val activityContext = activity
-            if (activityContext != null) {
-                val arrayAdapter = CourseListAdapter(activityContext, ArrayList(filteredCourses))
-                lv.adapter = arrayAdapter
-            }
-        }
-        filterAll.setOnClickListener{
-            val activityContext = activity
+            courses = viewModel?.getCoursesByTagId(tagId)
             if (activityContext != null) {
                 val arrayAdapter = CourseListAdapter(activityContext, ArrayList(courses))
                 lv.adapter = arrayAdapter
             }
         }
-        filterSubscribed.setOnClickListener{
-            val activityContext = activity
+        filterAll.setOnClickListener(){
+            courses = viewModel?.getCourses()
             if (activityContext != null) {
-                val arrayAdapter = CourseListAdapter(activityContext, ArrayList(viewModel?.getMyCourses()))
+                val arrayAdapter = CourseListAdapter(activityContext, ArrayList(courses))
                 lv.adapter = arrayAdapter
             }
+        }
+        filterSubscribed.setOnClickListener(){
+            myCourses = viewModel?.getMyCourses()
+            if (activityContext != null) {
+                val arrayAdapter = CourseListAdapter(activityContext, ArrayList(myCourses))
+                lv.adapter = arrayAdapter
+            }
+        }
+        filterStrengthTraining.setOnClickListener(){
+            showFilteredCourses(1)
+        }
+        filterCardio.setOnClickListener(){
+            showFilteredCourses(2)
+        }
+        filterStretching.setOnClickListener(){
+            showFilteredCourses(3)
         }
         return view
     }
