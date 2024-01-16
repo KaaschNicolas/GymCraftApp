@@ -21,20 +21,24 @@ class MembershipActivity : AppCompatActivity() {
         binding = ActivityMembershipBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //get the logged in user
         viewModel = ViewModelProvider(this).get(CustomerViewModel::class.java)
         val customer: Customer? = viewModel?.getUser()
 
         Log.i("User", "${customer?.firstName}")
 
+        //if the user is logged in and therefore not null, set the text to
+        // "Mitglied seit:" + Datum
+        //"Deine Mitglieschaftsnummer" + Mitgliedschaftsnummer
         if (customer != null) {
-            binding.memberSince.text = "Mitglied seit: \n" + viewModel!!.dateToReadableDate(customer.memberSince)
-            binding.membershipNumber.text = "Deine Mitgliedsschaftsnummer: \n" + (customer.memberNumber)
+            binding.memberSince.text =
+                "Mitglied seit: \n" + viewModel!!.dateToReadableDate(customer.memberSince)
+            binding.membershipNumber.text =
+                "Deine Mitgliedsschaftsnummer: \n" + (customer.memberNumber)
         }
-
-
-        //activity swap to MySubscriptionActivity
+        //activity swap to MySubscriptionActivity on button click
         binding.membershipChangeButton.setOnClickListener {
-
+            //Change activity to MySubscriptionActivity
             val intent = Intent(this, MySubscriptionActivity::class.java)
             startActivity(intent)
         }

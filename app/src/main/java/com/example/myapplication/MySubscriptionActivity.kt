@@ -36,6 +36,7 @@ class MySubscriptionActivity : AppCompatActivity() {
         Log.i("TariffListFragment", "${tariffs?.count()}")
         //Loading listview and adapter onCreate
         listView = findViewById(R.id.subscriptionLv)
+        //provide the activity context, an arraylist of all tariffs and the current logged in user to the adapter
         adapter = SubscriptionListAdapter(this, ArrayList(tariffs), currentUser)
         listView.adapter = adapter
     }

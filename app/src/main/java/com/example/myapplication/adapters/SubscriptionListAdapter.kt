@@ -1,10 +1,12 @@
 package com.example.myapplication.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
@@ -13,30 +15,36 @@ import com.example.myapplication.models.Tariff
 import com.example.myapplication.viewmodels.CustomerViewModel
 
 class SubscriptionListAdapter(
-    //get context from the activity
+    //get context from the activity as well as the current user and a List of all available tariffs
     private val context: Context,
     private val arrayList: ArrayList<Tariff>,
     private val currentUser: Int
 ) : BaseAdapter() {
 
+    @SuppressLint("ResourceAsColor")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        //get inflater from context which is the activity it belongs to
         val inflater: LayoutInflater = LayoutInflater.from(context)
+        //get view of list items
         val view: View = inflater.inflate(R.layout.subscription_list_item, null)
 
-        //val imageView: ImageView = view.findViewById(R.id.image)
+        //set variables for name status, Layout and cost
         val name: TextView = view.findViewById(R.id.subscriptionName)
         val bookStatus: TextView = view.findViewById(R.id.bookStatus)
-
+        val fullLayout: RelativeLayout = view.findViewById(R.id.fullLayout)
         val msgCost: TextView = view.findViewById(R.id.msgCost)
 
-        //imageView.setImageResource(arrayList[position].imageId)
-
+        //inject description and price to the according position of the textviews
         name.text = arrayList[position].description
         msgCost.text = arrayList[position].price.toString()
 
-        //TODO: make this dependent on who is logged in not "1", dunno how to inject the user that is logged in here
+        //check if the customerid is the same as the current logged in user
+        //if that is the case then set the status to "Erworben" and set the color to the main theme
+        //else set text to "Kostenpflichtig Erwerben"
         if (arrayList[position].customerId == currentUser) {
             bookStatus.text = "Erworben"
+            fullLayout.setBackgroundColor(R.color.colorPrimary)
+
         } else {
             bookStatus.text = "Kostenpflichtig Erwerben"
         }
