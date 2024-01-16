@@ -10,9 +10,6 @@ import javax.inject.Inject
 class StudioViewModel @Inject constructor(
         private val studioRepository: StudioRepository,
     ) : ViewModel() {
-
-        private lateinit var studio: Studio
-
         fun getStudio(id: Int): Studio {
             return studioRepository.getOneById(id)
         }

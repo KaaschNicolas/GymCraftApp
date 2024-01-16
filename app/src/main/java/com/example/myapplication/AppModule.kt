@@ -190,7 +190,7 @@ object AppModule {
                         ),
                         foundingDate =  Date(),
                         owner = "Markus Rühl",
-                        openingHours = "Mo-Fr 8-24 Uhr Sa-So 9-22 Uhr",
+                        openingHours = "Mo-Fr 10-21 Uhr Sa-So 9-22 Uhr",
                         description = "Kommt heute zu uns und trainiert für eure Gains! :)"
                     )
                     studioDao.save(studio1)
