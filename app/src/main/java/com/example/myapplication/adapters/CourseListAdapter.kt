@@ -17,11 +17,13 @@ import com.example.myapplication.models.Course
 import java.text.SimpleDateFormat
 import java.util.Date
 
+//Adapter für die Kursliste, um Daten in den einzelnen Items in der Kursliste anzuzeigen
 class CourseListAdapter(
     private val context: FragmentActivity,
     private val arrayList: ArrayList<Course>
 ) : BaseAdapter() {
 
+    //setzt die Daten in den einzelnen Items der ViewList
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater: LayoutInflater = LayoutInflater.from(context)
         val view: View = inflater.inflate(R.layout.course_list_item, null)
@@ -35,12 +37,6 @@ class CourseListAdapter(
         val current = formatter.format(date)
 
         val msgTime: TextView = view.findViewById(R.id.msgTime)
-
-
-        //val file = context.openFileInput(arrayList[position].imageId)
-        //file.read()
-
-        //val bitMap = BitmapFactory.decodeFile(arrayList[position].imageId)
 
         imageView.setImageResource(arrayList[position].imageId)
         name.text = arrayList[position].name

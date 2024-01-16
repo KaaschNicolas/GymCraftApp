@@ -26,6 +26,7 @@ import java.util.UUID
 import javax.inject.Provider
 import javax.inject.Singleton
 
+//Konfiguration des Inversion of Control Containers für Hilt
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -34,8 +35,7 @@ object AppModule {
     private var INSTANCE: GymCraftDatabase? = null
 
     private class DbCallback(
-        private val scope: CoroutineScope,
-        private val studioDao: Provider<StudioDao>,
+        private val scope: CoroutineScope
     ) : RoomDatabase.Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
@@ -208,7 +208,7 @@ object AppModule {
                 "GymDB",
             )
                 .allowMainThreadQueries()
-                .addCallback(DbCallback(scope,studioDaoProvider))
+                .addCallback(DbCallback(scope))
                 .build()
                 .also { INSTANCE = it}
             instance

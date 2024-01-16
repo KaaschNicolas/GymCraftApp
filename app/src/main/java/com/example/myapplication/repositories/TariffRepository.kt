@@ -4,6 +4,7 @@ import com.example.myapplication.daos.TariffDao
 import com.example.myapplication.models.Tariff
 import javax.inject.Inject
 
+//Repository zum gekapselten Zugriff auf TariffRepository
 class TariffRepository
 @Inject constructor(
     private val tariffDao: TariffDao

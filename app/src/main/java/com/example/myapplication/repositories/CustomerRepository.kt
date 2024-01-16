@@ -1,12 +1,11 @@
 package com.example.myapplication.repositories
 
-import androidx.room.Query
-import androidx.room.Transaction
 import androidx.room.Upsert
 import com.example.myapplication.daos.CustomerDao
 import com.example.myapplication.models.Customer
 import javax.inject.Inject
 
+//Repository zum gekapselten Zugriff auf CustomerRepository
 class CustomerRepository
 @Inject constructor(
     private val customerDao: CustomerDao

@@ -20,6 +20,7 @@ import com.example.myapplication.models.Course
 import com.example.myapplication.models.CustomerStudioMapping
 import com.example.myapplication.models.Studio
 
+//Room-Databse Klasse, welche alle Entitäten in der Datenbank angibt und alle Daos implementiert
 @Database(
     entities =
     [
