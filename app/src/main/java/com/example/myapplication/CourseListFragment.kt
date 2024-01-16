@@ -54,7 +54,7 @@ class CourseListFragment(
             val arrayAdapter = CourseListAdapter(activityContext, ArrayList(courses))
             lv.adapter = arrayAdapter
         }
-
+        //Leitet bei Klick auf einen Kurs auf die jeweilige Kursdetailseite weiter und gibt die ID des Kurses als Information an die CourseDetailActivity mit
         lv.setOnItemClickListener { parent, view, position, id ->
             val element = courses?.get(position)
             //navigate to next activity/fragment here
@@ -62,11 +62,13 @@ class CourseListFragment(
             intent.putExtra("course", element?.id)
             startActivity(intent)
         }
-
+        //Implementiert die Suche.
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String?): Boolean {
                 return false
             }
+            // Es wird ein Array mit Kursen befüllt, die die in der Suchleiste eingegebenen Buchstabenfolgen enthalten
+            //Dabei wird aus den Kursen befüllt, die bereits gefiltert wurde, falls ein Filter gesetzt wurde
             override fun onQueryTextChange(s: String): Boolean {
                 val searchedCourses: ArrayList<Course> = ArrayList<Course>()
                 courses?.let{
@@ -83,6 +85,7 @@ class CourseListFragment(
                 return false
             }
         })
+        //Diese Funktion wird aufgerufen, wenn einer der Filter nach den Tags (Cardio, Stretching und Krafttraining) angeklickt wurde
         fun showFilteredCourses(tagId: Int){
             courses = viewModel?.getCoursesByTagId(tagId)
             if (activityContext != null) {
@@ -90,6 +93,7 @@ class CourseListFragment(
                 lv.adapter = arrayAdapter
             }
         }
+        //Selektiert alle verfügbaren Kurse und zeigt diese an
         filterAll.setOnClickListener(){
             courses = viewModel?.getCourses()
             if (activityContext != null) {
@@ -97,6 +101,7 @@ class CourseListFragment(
                 lv.adapter = arrayAdapter
             }
         }
+        //Selektiert alle Kurse, zu denen der Nutzer angemeldet ist und zeigt diese an
         filterSubscribed.setOnClickListener(){
             myCourses = viewModel?.getMyCourses()
             if (activityContext != null) {

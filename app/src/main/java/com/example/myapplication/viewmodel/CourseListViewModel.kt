@@ -25,13 +25,14 @@ class CourseListViewModel @Inject constructor(
     private lateinit var courses: List<Course>
     private lateinit var tagCourses: MutableList<Course>
 
+    //Gibt alle Kurse zurück, bei denen man angemeldet ist
     private fun fillMyCourses() {
         val mappings = customerCourseRepository.getMappingsByCustomerId(customerService.getCustomer().id)
         mappings.forEach{
             myCourses.add(courseRepository.getOneById(it.courseId))
         }
     }
-
+    //Gibt alle existierenden Kurse zurück
     private fun fillCourses() {
         courseRepository.getAll().let {
             courses = it
@@ -50,7 +51,7 @@ class CourseListViewModel @Inject constructor(
 
         return myCourses.toList()
     }
-
+    //Gibt alle Kurse zurück, die ein gewisses Tag besitzen (Eintrag in der Brückentabelle)
     fun fillCoursesByTagId(tagId: Int){
         courseTagRepository.getMappingsByTagId(tagId).forEach{
             tagCourses.add(courseRepository.getOneById(it.courseId))

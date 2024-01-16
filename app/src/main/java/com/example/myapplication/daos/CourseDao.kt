@@ -16,7 +16,7 @@ interface CourseDao {
     @Delete
     fun delete(course: Course)
 
-    @Query("SELECT * FROM Course ORDER BY name")
+    @Query("SELECT * FROM Course ORDER BY date")
     fun getAll(): List<Course>
 
     @Transaction

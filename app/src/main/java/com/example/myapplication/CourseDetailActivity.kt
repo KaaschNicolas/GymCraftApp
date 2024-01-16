@@ -37,6 +37,8 @@ class CourseDetailActivity : AppCompatActivity() {
         val subscriptionButton = findViewById<Button>(R.id.subscriptionButton)
         var leftPlaces = 1
 
+        //Setzen der jeweiligen Werte für den angeklickten Kurs
+
         course?.let {
             imageView.id= it.imageId
             courseNameTextView.text = it.name
@@ -44,12 +46,16 @@ class CourseDetailActivity : AppCompatActivity() {
             courseMaxParticipantsTextView.text = "Maximale Teilnehmeranzahl: ${it.maxNumberOfEntrants}"
             val formatter = SimpleDateFormat("dd.MM.YYYY HH:mm")
             dateTextView.text = "Datum: ${formatter.format(it.date)}"
+            imageView.setImageResource(it.imageId)
             viewModel?.let{
                 leftPlaces = course.maxNumberOfEntrants - it.countParticipants(course.id)
                 currentParticipantsTextView.text= "Anzahl freier Plätze: ${course.maxNumberOfEntrants - it.countParticipants(course.id)}"
             }
         }
         Log.i("checkMappingExists", viewModel?.checkMappingExists(course?.id).toString())
+
+        //Prüfung, ob der angemeldete Nutzer beim angeklickten Kurs angemeldet ist.
+        //Falls der Kurs ausgebucht ist, wird der Button ausgegraut
         if (viewModel?.checkMappingExists(course?.id) != null){
             subscriptionButton.setBackgroundColor(Color.RED)
             subscriptionButton.text = "Abmelden"
@@ -58,6 +64,8 @@ class CourseDetailActivity : AppCompatActivity() {
         } else {
             subscriptionButton.text = "Anmelden"
         }
+        //Button dient entweder der An- oder Abmeldung. Je nach dem wird er entsprechend markiert und bei klicken des Button eine Mitteilung am unteren Rand des Bildschirms angezeigt
+        //Nach dem Klick wird die aktuelle Teilnehmerzahl und der Button angepasst
          subscriptionButton.setOnClickListener {
              val check = viewModel?.subscribeunsubscribe(course?.id)
              if (check == true){

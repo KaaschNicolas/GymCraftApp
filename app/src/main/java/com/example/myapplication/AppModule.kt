@@ -23,6 +23,7 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.UUID
 import javax.inject.Provider
@@ -50,13 +51,23 @@ object AppModule {
 
                     val date = Date()
 
+                    val date1 = "18.01.2023 18:00"
+                    val date2 = "19.01.2023 19:00"
+                    val date3 = "19.01.2023 20:00"
+                    val date4 = "21.01.2023 18:00"
+                    val date5 = "22.01.2023 16:00"
+                    val date6 = "22.01.2023 18:00"
+                    val date7 = "23.01.2023 20:00"
+
+                    val format = SimpleDateFormat("dd.MM.yyyy HH:mm")
+
                     val drawable1 = R.drawable.course_sample
 
                     val course1 = Course(
                         id = 1,
                         name = "Spinning",
                         description = "Join our fun spinning classes at the gym! Pedal to the beat, burn calories, and boost your fitness in a lively group atmosphere.",
-                        date,
+                        date = format.parse(date1),
                         maxNumberOfEntrants = 20,
                         imageId = drawable1,
                     )
@@ -67,7 +78,7 @@ object AppModule {
                         id = 2,
                         name = "Yoga",
                         description = "Unwind and rejuvenate in our Relax & Stretch Yoga class. Perfect for beginners and seasoned yogis alike, this session focuses on gentle stretches, deep breathing, and fostering a sense of calm for a balanced mind and body.",
-                        date,
+                        date = format.parse(date2),
                         maxNumberOfEntrants = 12,
                         imageId = drawable2,
                     )
@@ -77,8 +88,8 @@ object AppModule {
                     val course3 = Course(
                         id = 3,
                         name = "Zumba",
-                        description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
-                        date,
+                        description = "Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
+                        date = format.parse(date3),
                         maxNumberOfEntrants =  13,
                         imageId = drawable3,
                     )
@@ -89,7 +100,7 @@ object AppModule {
                         id = 4,
                         name = "Kickboxing",
                         description = "Unleash your inner warrior in Cardio Kickboxing! Channel your stress into powerful punches and kicks while getting an intense cardio workout. Don't be surprised if you leave feeling like a superhero.",
-                        date,
+                        date = format.parse(date4),
                         maxNumberOfEntrants =  15,
                         imageId = drawable4,
                     )
@@ -100,7 +111,7 @@ object AppModule {
                         id = 5,
                         name = "Zumba",
                         description = "Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
-                        date,
+                        date= format.parse(date5),
                         maxNumberOfEntrants =  13,
                         imageId = drawable3,
                     )
@@ -109,9 +120,9 @@ object AppModule {
 
                     val course6 = Course(
                         id = 6,
-                        name = "Stretch & Relax",
+                        name = "Stretching",
                         description = "Ease tension and enhance flexibility in Stretch & Relax. This class is all about gentle stretches and relaxation techniques to help you unwind and leave feeling refreshed.",
-                        date,
+                        date=format.parse(date6),
                         maxNumberOfEntrants =  10,
                         imageId = drawable5,
                     )
@@ -122,7 +133,7 @@ object AppModule {
                         id = 7,
                         name = "Bodyweight",
                         description = "No fancy equipment needed! Join Bodyweight Basics to learn effective exercises using just your own body weight. It's a simple yet powerful way to build strength and endurance.",
-                        date,
+                        date = format.parse(date7),
                         maxNumberOfEntrants =  13,
                         imageId = drawable6,
                     )
