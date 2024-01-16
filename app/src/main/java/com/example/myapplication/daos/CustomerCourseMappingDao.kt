@@ -22,7 +22,7 @@ interface CustomerCourseMappingDao {
 
     @Transaction
     @Query("SELECT * FROM CustomerCourseMapping WHERE courseId = :id")
-    fun getMappingsByCourseId(id: Int): CustomerCourseMapping
+    fun getMappingsByCourseId(id: Int): List<CustomerCourseMapping>
 
     @Transaction
     @Query("SELECT * FROM CustomerCourseMapping WHERE customerId = :id")

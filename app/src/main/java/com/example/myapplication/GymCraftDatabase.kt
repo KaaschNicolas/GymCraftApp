@@ -7,10 +7,12 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.myapplication.converters.Converters
 import com.example.myapplication.daos.CourseDao
+import com.example.myapplication.daos.CourseTagMappingDao
 import com.example.myapplication.daos.CustomerCourseMappingDao
 import com.example.myapplication.daos.CustomerDao
 import com.example.myapplication.daos.CustomerStudioMappingDao
 import com.example.myapplication.daos.StudioDao
+import com.example.myapplication.daos.TagDao
 import com.example.myapplication.daos.TariffDao
 import com.example.myapplication.models.Address
 import com.example.myapplication.models.Customer
@@ -19,6 +21,8 @@ import com.example.myapplication.models.Tariff
 import com.example.myapplication.models.Course
 import com.example.myapplication.models.CustomerStudioMapping
 import com.example.myapplication.models.Studio
+import com.example.myapplication.models.Tag
+import com.example.myapplication.models.CourseTagMapping
 
 @Database(
     entities =
@@ -30,6 +34,8 @@ import com.example.myapplication.models.Studio
         Course::class,
         Studio::class,
         Address::class,
+        Tag::class,
+        CourseTagMapping::class,
        ],
     version = 1
 )
@@ -46,5 +52,9 @@ abstract class GymCraftDatabase : RoomDatabase() {
     abstract fun getTariffDao(): TariffDao
 
     abstract fun getStudioDao(): StudioDao
+
+    abstract fun getTagDao(): TagDao
+
+    abstract fun getCourseTagMappingDao(): CourseTagMappingDao
 
 }

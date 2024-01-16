@@ -13,6 +13,9 @@ class LoginViewModel @Inject constructor(
     private val customerRepository: CustomerRepository
 ): ViewModel() {
     fun checkLogin(password: String, username: String): Boolean {
+        if (password.isNullOrEmpty() || username.isNullOrEmpty()) {
+            return false
+        }
         val customerByUsername = customerRepository.getOneByUsername(username)
         return if (customerByUsername.password == password) {
             setUser(customerByUsername)
