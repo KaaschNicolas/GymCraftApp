@@ -35,7 +35,6 @@ object AppModule {
 
     private class DbCallback(
         private val scope: CoroutineScope,
-        private val studioDao: Provider<StudioDao>,
     ) : RoomDatabase.Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
@@ -208,7 +207,7 @@ object AppModule {
                 "GymDB",
             )
                 .allowMainThreadQueries()
-                .addCallback(DbCallback(scope,studioDaoProvider))
+                .addCallback(DbCallback(scope))
                 .build()
                 .also { INSTANCE = it}
             instance
