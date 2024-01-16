@@ -42,7 +42,7 @@ class CourseDetailActivity : AppCompatActivity() {
             courseNameTextView.text = it.name
             descriptionTextView.text = it.description
             courseMaxParticipantsTextView.text = "Maximale Teilnehmeranzahl: ${it.maxNumberOfEntrants}"
-            val formatter = SimpleDateFormat("dd.MM.YYYY")
+            val formatter = SimpleDateFormat("dd.MM.YYYY HH:mm")
             dateTextView.text = "Datum: ${formatter.format(it.date)}"
             viewModel?.let{
                 leftPlaces = course.maxNumberOfEntrants - it.countParticipants(course.id)

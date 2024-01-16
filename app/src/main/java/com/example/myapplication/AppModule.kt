@@ -87,7 +87,7 @@ object AppModule {
 
                     val course4 = Course(
                         id = 4,
-                        name = "Cardio Kickboxing",
+                        name = "Kickboxing",
                         description = "Unleash your inner warrior in Cardio Kickboxing! Channel your stress into powerful punches and kicks while getting an intense cardio workout. Don't be surprised if you leave feeling like a superhero.",
                         date,
                         maxNumberOfEntrants =  15,
@@ -99,7 +99,7 @@ object AppModule {
                     val course5 = Course(
                         id = 5,
                         name = "Zumba",
-                        description = "\"Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
+                        description = "Dance away the calories with our Zumba Fiesta! Join the party, move to infectious beats, and sweat your way to fitness – because workouts are better when they feel like a celebration!\"",
                         date,
                         maxNumberOfEntrants =  13,
                         imageId = drawable3,
