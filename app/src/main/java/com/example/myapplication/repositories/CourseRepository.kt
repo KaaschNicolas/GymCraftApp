@@ -4,6 +4,7 @@ import com.example.myapplication.daos.CourseDao
 import com.example.myapplication.models.Course
 import javax.inject.Inject
 
+//Repository zum gekapselten Zugriff auf CourseDao
 class CourseRepository
 @Inject constructor(
         private val courseDao: CourseDao

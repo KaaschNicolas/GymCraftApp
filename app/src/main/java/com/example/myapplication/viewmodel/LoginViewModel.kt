@@ -7,11 +7,14 @@ import com.example.myapplication.services.CustomerService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+//Viewmodel welches die Funktionalität für MainActivity
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val customerService: CustomerService,
     private val customerRepository: CustomerRepository
 ): ViewModel() {
+
+    //Überprüft, ob password und username übereinstimmen
     fun checkLogin(password: String, username: String): Boolean {
         if (password.isNullOrEmpty() || username.isNullOrEmpty()) {
             return false
@@ -25,25 +28,13 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    //Dummy-Aufruf an die Db, um den onCreate()-Callback auf der Gymcraftdatabase zu triggern
     fun triggerDB() {
         customerRepository.getAll()
     }
 
+    //setzt den aktuell angemeldeten User in der App
     private fun setUser(customer: Customer) {
             customerService.setCustomer(customer)
-            /*val date = Date()
-            customerService.setCustomer(Customer(
-                id = 1,
-                lastName = "Kaasch",
-                firstName = "Nicolas",
-                username ="knicolas",
-                password = "Test1234",
-                email = "nicolas.kaasch@test.de",
-                birthday = date,
-                height = 1.85f,
-                weight = 80f,
-                memberSince = date,
-                memberNumber = UUID.randomUUID()
-            )) */
     }
 }

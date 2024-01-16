@@ -24,6 +24,7 @@ import com.example.myapplication.models.Studio
 import com.example.myapplication.models.Tag
 import com.example.myapplication.models.CourseTagMapping
 
+//Room-Databse Klasse, welche alle Entitäten in der Datenbank angibt und alle Daos implementiert
 @Database(
     entities =
     [

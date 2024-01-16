@@ -4,6 +4,7 @@ import com.example.myapplication.daos.CustomerStudioMappingDao
 import com.example.myapplication.models.CustomerStudioMapping
 import javax.inject.Inject
 
+//Repository zum gekapselten Zugriff auf CustomerStudioRepository
 class CustomerStudioRepository
 @Inject constructor(
     private val customerStudioMappingDao: CustomerStudioMappingDao
