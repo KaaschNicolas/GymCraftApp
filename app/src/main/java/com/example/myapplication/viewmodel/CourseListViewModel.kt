@@ -26,6 +26,7 @@ class CourseListViewModel @Inject constructor(
     private lateinit var tagCourses: MutableList<Course>
 
     private fun fillMyCourses() {
+        var courseMapping = customerCourseRepository.getMappingsByCustomerId(1)
         val mappings = customerCourseRepository.getMappingsByCustomerId(customerService.getCustomer().id)
         mappings.forEach{
             myCourses.add(courseRepository.getOneById(it.courseId))

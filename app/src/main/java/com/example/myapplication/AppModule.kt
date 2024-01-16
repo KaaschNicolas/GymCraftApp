@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.content.Context
 import android.util.Log
+import androidx.room.ColumnInfo
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -14,6 +15,7 @@ import com.example.myapplication.models.Studio
 import com.example.myapplication.models.Customer
 import com.example.myapplication.models.Tag
 import com.example.myapplication.services.CustomerService
+import com.example.myapplication.models.Tariff
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
@@ -184,6 +186,59 @@ object AppModule {
                     )
                     studioDao.save(studio1)
 
+
+                    val tariff1 = Tariff(
+                        id = 1,
+                        price = 29.99f,
+                        duration = date,
+                        description = "Basistariff",
+                        customerId = 1,
+                    )
+                    val tariff2 = Tariff(
+                        id = 2,
+                        price = 31.98f,
+                        duration = date,
+                        description = "Ernährungsberatung",
+                        customerId = 2,
+                    )
+                    val tariff3 = Tariff(
+                        id = 3,
+                        price = 33.78f,
+                        duration = date,
+                        description = "BasisTariff+",
+                        customerId = 3,
+                    )
+                    val tariff4 = Tariff(
+                        id = 4,
+                        price = 36.98f,
+                        duration = date,
+                        description = "Tariff+ Massage",
+                        customerId = 4,
+                    )
+                    val tariff5 = Tariff(
+                        id = 5,
+                        price = 100.99f,
+                        duration = date,
+                        description = "Permium Tariff",
+                        customerId = 5,
+                    )
+                    val tariff6 = Tariff(
+                        id = 6,
+                        price = 46.98f,
+                        duration = date,
+                        description = "Tariff+ Personal",
+                        customerId = 6,
+                    )
+                    val tariff7 = Tariff(
+                        id = 7,
+                        price = 33.99f,
+                        duration = date,
+                        description = "Tariff Sauna",
+                        customerId = 7,
+                    )
+                    val tariffDao = it.getTariffDao()
+                    val tariffList: List<Tariff> = arrayListOf(tariff1, tariff2, tariff3, tariff4, tariff5, tariff6, tariff7)
+                    tariffList.forEach { tariffDao.saveTariff(it) }
                     val tagDao = it.getTagDao()
                     val strengthTrainingTag = Tag(
                         id = 1,
