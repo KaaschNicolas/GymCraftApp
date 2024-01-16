@@ -27,6 +27,7 @@ class CourseListViewModel @Inject constructor(
 
     //Gibt alle Kurse zurück, bei denen man angemeldet ist
     private fun fillMyCourses() {
+        var courseMapping = customerCourseRepository.getMappingsByCustomerId(1)
         val mappings = customerCourseRepository.getMappingsByCustomerId(customerService.getCustomer().id)
         mappings.forEach{
             myCourses.add(courseRepository.getOneById(it.courseId))

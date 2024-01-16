@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button1" />
 
     <Button
-        android:id="@+id/membershipId"
+        android:id="@+id/membershipNumber"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
@@ -70,7 +70,7 @@
         android:text="Freunde"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/membershipId" />
+        app:layout_constraintTop_toBottomOf="@+id/membershipNumber" />
 
     <Button
         android:id="@+id/button6"
