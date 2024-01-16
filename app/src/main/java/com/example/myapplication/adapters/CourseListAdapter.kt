@@ -1,6 +1,8 @@
 package com.example.myapplication.adapters
 
 import android.app.Activity
+import android.content.Context
+import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +35,12 @@ class CourseListAdapter(
         val current = formatter.format(date)
 
         val msgTime: TextView = view.findViewById(R.id.msgTime)
+
+
+        //val file = context.openFileInput(arrayList[position].imageId)
+        //file.read()
+
+        //val bitMap = BitmapFactory.decodeFile(arrayList[position].imageId)
 
         imageView.setImageResource(arrayList[position].imageId)
         name.text = arrayList[position].name
