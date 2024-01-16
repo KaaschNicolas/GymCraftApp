@@ -37,6 +37,13 @@
         android:text="Maximale Teilnehmeranzahl:"/>
 
     <TextView
+        android:id="@+id/currentParticipants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Noch 1 Platz frei"/>
+
+    <TextView
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
