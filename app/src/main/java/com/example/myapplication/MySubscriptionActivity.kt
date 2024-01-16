@@ -34,9 +34,9 @@ class MySubscriptionActivity : AppCompatActivity() {
         var currentUser = customerViewModel.getUser().id
 
         Log.i("TariffListFragment", "${tariffs?.count()}")
-        //Loading listview and adapter onCreate
+        //Lade die listview bei erstellung der Activity
         listView = findViewById(R.id.subscriptionLv)
-        //provide the activity context, an arraylist of all tariffs and the current logged in user to the adapter
+        // Dem Adapter den Aktivitätskontext, eine ArrayList aller Tarife und den aktuell angemeldeten Benutzer bereitstellen
         adapter = SubscriptionListAdapter(this, ArrayList(tariffs), currentUser)
         listView.adapter = adapter
     }

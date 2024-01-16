@@ -16,12 +16,14 @@ class MySubscriptionsViewModel @Inject constructor(
     private lateinit var myTariff: MutableList<Tariff>
     private lateinit var tariffs: List<Tariff>
 
+    //hole alle Tarife und gebe sie aus einer Liste aus
     private fun fillTariffs(): List<Tariff> {
         tariffRepository.getAll().let {
             return it
         }
     }
 
+    //gebe die tarife für das Programm zurück
     fun getTariffs(): List<Tariff> {
         return fillTariffs()
     }

@@ -39,7 +39,7 @@ class CustomerViewModel
         return tariffRepository.getOneByCustomerId(customerId)
     }
 
-    //get id out of login Context
+    // ID aus dem Anmeldekontext abrufen
     suspend fun initCustomer(id: Int) {
         getCurrentCustomer(id).let { customer ->
             if (customer != null) {
@@ -57,11 +57,13 @@ class CustomerViewModel
         }
 
     }
+    //Den Customer bekommen und als User weitergeben
     fun getUser(): Customer {
         customerService.getCustomer().let {
             return it
         }
     }
+    //das Datum vereinfacht zurückgeben
     fun dateToReadableDate(date: Date?): String? {
         val dateFormat = SimpleDateFormat("DD-MM-YYYY")
 

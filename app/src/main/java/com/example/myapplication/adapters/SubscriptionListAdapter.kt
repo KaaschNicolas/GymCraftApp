@@ -15,7 +15,7 @@ import com.example.myapplication.models.Tariff
 import com.example.myapplication.viewmodels.CustomerViewModel
 
 class SubscriptionListAdapter(
-    //get context from the activity as well as the current user and a List of all available tariffs
+    // Den Kontext aus der Aktivität sowie den aktuellen Benutzer und eine Liste aller verfügbaren Tarife erhalten
     private val context: Context,
     private val arrayList: ArrayList<Tariff>,
     private val currentUser: Int
@@ -23,24 +23,24 @@ class SubscriptionListAdapter(
 
     @SuppressLint("ResourceAsColor")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        //get inflater from context which is the activity it belongs to
+        // Den Inflater aus dem Kontext erhalten, der zur Aktivität gehört
         val inflater: LayoutInflater = LayoutInflater.from(context)
-        //get view of list items
+        // Ansicht der Listenelemente erhalten
         val view: View = inflater.inflate(R.layout.subscription_list_item, null)
 
-        //set variables for name status, Layout and cost
+        //setze die variablen für Namen, Status, Layout und kosten
         val name: TextView = view.findViewById(R.id.subscriptionName)
         val bookStatus: TextView = view.findViewById(R.id.bookStatus)
         val fullLayout: RelativeLayout = view.findViewById(R.id.fullLayout)
         val msgCost: TextView = view.findViewById(R.id.msgCost)
 
-        //inject description and price to the according position of the textviews
+        // Beschreibung und Preis an die entsprechende Position der TextViews einfügen
         name.text = arrayList[position].description
         msgCost.text = arrayList[position].price.toString()
 
-        //check if the customerid is the same as the current logged in user
-        //if that is the case then set the status to "Erworben" and set the color to the main theme
-        //else set text to "Kostenpflichtig Erwerben"
+        // Überprüfen, ob die Kunden-ID mit der id des angemeldeten Benutzer übereinstimmt
+        // Falls dies der Fall ist, den Status auf "Erworben" setzen und die Farbe festlegen
+        // Andernfalls den Text auf "Kostenpflichtig Erwerben" setzen
         if (arrayList[position].customerId == currentUser) {
             bookStatus.text = "Erworben"
             fullLayout.setBackgroundColor(R.color.colorPrimary)
