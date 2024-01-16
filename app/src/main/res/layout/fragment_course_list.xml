@@ -32,7 +32,8 @@
             android:text="Alle"
             android:id="@+id/allCourses"
             android:background="@color/colorPrimary"
-            android:onClick="allCoursesFilterTapped"/>
+            android:onClick="allCoursesFilterTapped"
+            android:layout_marginBottom="1dp"/>
 
         <Button
             android:layout_width="0dp"
@@ -41,7 +42,11 @@
             android:text="Angemeldet"
             android:id="@+id/subscribed"
             android:background="@color/colorPrimary"
-            android:onClick="subscribedFilterTapped"/>
+            android:onClick="subscribedFilterTapped"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"/>
+
 
         <Button
             android:layout_width="0dp"
@@ -50,7 +55,8 @@
             android:text="Kraftsport"
             android:id="@+id/strengthTraining"
             android:background="@color/colorPrimary"
-            android:onClick="strengthTrainingFilterTapped"/>
+            android:onClick="strengthTrainingFilterTapped"
+            android:layout_marginBottom="1dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -67,7 +73,8 @@
             android:text="Cardio"
             android:id="@+id/cardio"
             android:background="@color/colorPrimary"
-            android:onClick="cardioFilterTapped"/>
+            android:onClick="cardioFilterTapped"
+            android:layout_marginRight="1dp"/>
 
         <Button
             android:layout_width="0dp"

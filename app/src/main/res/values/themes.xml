@@ -2,11 +2,17 @@
 <resources>
 
     <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar" />
+
     <!-- Base application theme. -->
     <style name="Base.Theme.MaterialComponents" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- Add other theme customizations as needed -->
     </style>
 
-    <style name="Theme.MaterialComponents" parent="Base.Theme.MaterialComponents" />
+    <style name="Theme.MaterialComponents" parent="Base.Theme.MaterialComponents">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
+    />
+
 </resources>

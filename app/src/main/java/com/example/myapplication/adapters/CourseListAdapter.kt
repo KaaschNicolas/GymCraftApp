@@ -32,7 +32,7 @@ class CourseListAdapter(
         val name: TextView = view.findViewById(R.id.courseName)
         val message: TextView = view.findViewById(R.id.message)
 
-        val formatter = SimpleDateFormat("dd.MM.YYYY")
+        val formatter = SimpleDateFormat("dd.MM.YYYY HH:mm")
         val date = arrayList[position].date
         val current = formatter.format(date)
 
