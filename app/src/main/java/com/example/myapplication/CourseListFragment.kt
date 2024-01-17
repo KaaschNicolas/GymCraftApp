@@ -48,7 +48,7 @@ class CourseListFragment(
         var myCourses = viewModel?.getMyCourses()
 
         Log.i("CourseListFragment", "${courses?.count()}")
-
+        //Anzeige aller existierenden Kurse
         val activityContext = activity
         if (activityContext != null) {
             val arrayAdapter = CourseListAdapter(activityContext, ArrayList(courses))
@@ -109,6 +109,7 @@ class CourseListFragment(
                 lv.adapter = arrayAdapter
             }
         }
+        //Rufen die Funktion showFilteredCourses mit der jeweiligen Tag Id die zu dem Button gehört
         filterStrengthTraining.setOnClickListener(){
             showFilteredCourses(1)
         }

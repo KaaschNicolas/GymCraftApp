@@ -46,8 +46,7 @@ object AppModule {
             INSTANCE?.let {
                 scope.launch {
                     Log.i("Database Init", "OnCreate")
-                    //val courses = courseDao.getAll()
-                    //courses.forEach { courseDao.delete(it)}
+                    //Befüllung der Datenbank mit Testdaten
 
                     val courseDao = it.getCourseDao()
 
@@ -106,8 +105,6 @@ object AppModule {
                         maxNumberOfEntrants =  15,
                         imageId = drawable4,
                     )
-
-
 
                     val course5 = Course(
                         id = 5,
@@ -293,8 +290,6 @@ object AppModule {
     @Provides
     fun provideGymCraftDatabase(
         @ApplicationContext app: Context,
-        courseDaoProvider: Provider<CourseDao>,
-        studioDaoProvider: Provider<StudioDao>,
     ): GymCraftDatabase {
         return INSTANCE ?: synchronized(this) {
             val scope = CoroutineScope(Dispatchers.IO)

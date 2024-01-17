@@ -39,13 +39,13 @@ class CourseListViewModel @Inject constructor(
             courses = it
         }
     }
-
+    //Ruft fillCourses() auf und gibt das Ergebnis als Liste an das Fragment zurück
      fun getCourses(): List<Course> {
         fillCourses()
 
         return courses
     }
-
+    //Ruft fillMyCourses() auf und gibt das Ergebnis als Liste an das Fragment zurück
     fun getMyCourses() : List<Course> {
         myCourses = mutableListOf()
         fillMyCourses()
@@ -58,6 +58,7 @@ class CourseListViewModel @Inject constructor(
             tagCourses.add(courseRepository.getOneById(it.courseId))
         }
     }
+    //Ruft fillCoursesByTagId() auf und gibt das Ergebnis in einer Liste an das Fragment zurück
     fun getCoursesByTagId(tagId: Int): List<Course> {
         tagCourses = mutableListOf()
         fillCoursesByTagId(tagId)

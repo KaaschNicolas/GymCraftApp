@@ -69,15 +69,17 @@ class CourseDetailActivity : AppCompatActivity() {
          subscriptionButton.setOnClickListener {
              val check = viewModel?.subscribeunsubscribe(course?.id)
              if (check == true){
+                 //Wenn der User bisher angemeldet war
                  val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich abgemeldet", Toast.LENGTH_SHORT)
-                 myToast.show() // Show the toast
-                // Set a timer to cancel the toast after 5 seconds (5000ms)
+                 myToast.show() // Zeige den Toast/Die Mitteilung
+                // Setze einen Timer um die Mitteilung nach 5 Sek wieder versdhwinden zu lassen (5000ms)
                  Handler(Looper.getMainLooper()).postDelayed({
-                     myToast.cancel() // This will dismiss the toast
+                     myToast.cancel() // Zeige die Mitteilung nicht mehr
                  }, 5000)
                  subscriptionButton.setBackgroundColor(Color.rgb(187, 134, 252))
                  subscriptionButton.text = "Anmelden"
              } else {
+                 //wenn der User bisher abgemeldet war
                  val myToast = Toast.makeText(applicationContext, "Sie wurden erfolgreich angemeldet", Toast.LENGTH_SHORT)
                  myToast.show()
                  Handler(Looper.getMainLooper()).postDelayed({
@@ -86,6 +88,7 @@ class CourseDetailActivity : AppCompatActivity() {
                  subscriptionButton.setBackgroundColor(Color.RED)
                  subscriptionButton.text = "Abmelden"
              }
+             //Aktualisierung der Anzahl freier Plätze
              course?.let{
                  viewModel?.let {
                      currentParticipantsTextView.text= "Anzahl freier Plätze: ${course.maxNumberOfEntrants - it.countParticipants(course.id)}"
