@@ -4,6 +4,7 @@ import com.example.myapplication.daos.StudioDao
 import com.example.myapplication.models.Studio
 import javax.inject.Inject
 
+//Repository zum gekapselten Zugriff auf StudioRepository
 class StudioRepository
 @Inject constructor(
     private val studioDao: StudioDao
