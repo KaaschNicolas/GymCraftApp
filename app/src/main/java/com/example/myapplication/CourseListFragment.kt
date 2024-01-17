@@ -103,9 +103,9 @@ class CourseListFragment(
         }
         //Selektiert alle Kurse, zu denen der Nutzer angemeldet ist und zeigt diese an
         filterSubscribed.setOnClickListener(){
-            myCourses = viewModel?.getMyCourses()
+            courses = viewModel?.getMyCourses()
             if (activityContext != null) {
-                val arrayAdapter = CourseListAdapter(activityContext, ArrayList(myCourses))
+                val arrayAdapter = CourseListAdapter(activityContext, ArrayList(courses))
                 lv.adapter = arrayAdapter
             }
         }
